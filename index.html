@@ -4,1355 +4,1196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TKT — Fiche Concept Unité Type</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>TKT — La bière qui vient de chez nous</title>
+<meta name="description" content="TKT — Tchoukoutou. Bière artisanale béninoise. Modernisation du savoir-faire des femmes Somba du nord Bénin. Bénin × Québec.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Cormorant+Infant:ital,wght@1,300;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
     --or: #C8960C;
-    --or-light: #F5E6B2;
-    --or-dark: #8B6508;
-    --vert: #2D5A1B;
-    --vert-mid: #3D7A25;
-    --vert-light: #E8F2E0;
-    --rouge: #8B2020;
-    --rouge-light: #FDF0F0;
-    --terre: #8B5A2B;
-    --terre-light: #F5EDE0;
-    --terre-dark: #5C3A1A;
-    --bleu: #1A3A6B;
-    --bleu-light: #EBF0FA;
-    --noir: #1A1208;
-    --blanc: #FDFAF4;
-    --gris: #6B6050;
-    --bg: #F7F2E8;
+    --or-bright: #E5B520;
+    --or-deep: #8B6508;
+    --terre: #6B3F1A;
+    --terre-deep: #2A1608;
+    --terre-mid: #4A2810;
+    --crème: #F5EBD8;
+    --crème-warm: #EFE2C9;
+    --crème-deep: #E5D4B0;
+    --noir: #0F0805;
+    --rouge-sang: #6B1818;
+    --vert-foret: #1F3A1F;
+    --beige: #D4B896;
   }
 
 - { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 
 body {
-font-family: ‘Barlow’, sans-serif;
-background: var(–bg);
+font-family: ‘Bricolage Grotesque’, sans-serif;
+background: var(–crème);
 color: var(–noir);
-font-size: 14px;
 line-height: 1.6;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
 }
 
-/* ── COVER ── */
-.cover {
+/* Grain texture overlay */
+body::before {
+content: ‘’;
+position: fixed;
+inset: 0;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 250 250’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘3’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’ opacity=‘0.4’/%3E%3C/svg%3E”);
+opacity: 0.06;
+pointer-events: none;
+z-index: 100;
+mix-blend-mode: multiply;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────────────── */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+padding: 20px 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 50;
+background: linear-gradient(to bottom, rgba(15,8,5,0.85) 0%, rgba(15,8,5,0) 100%);
+transition: background 0.3s;
+}
+
+.nav-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 700;
+font-size: 28px;
+letter-spacing: 2px;
+color: var(–or-bright);
+text-decoration: none;
+}
+
+.nav-links {
+display: flex;
+gap: 32px;
+list-style: none;
+}
+
+.nav-links a {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 400;
+font-size: 13px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(–crème);
+text-decoration: none;
+transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(–or-bright); }
+
+@media (max-width: 768px) {
+.nav-links { display: none; }
+}
+
+/* ── HERO ────────────────────────────────────────────────────────────── */
+.hero {
 min-height: 100vh;
-background: var(–terre-dark);
+background: var(–terre-deep);
+color: var(–crème);
 position: relative;
 overflow: hidden;
 display: flex;
-flex-direction: column;
-justify-content: center;
 align-items: center;
-padding: 60px 40px;
+justify-content: center;
+padding: 100px 40px 80px;
 }
 
-.cover::before {
+.hero::before {
 content: ‘’;
 position: absolute;
 inset: 0;
 background:
-radial-gradient(ellipse at 20% 50%, rgba(200,150,12,0.15) 0%, transparent 60%),
-radial-gradient(ellipse at 80% 30%, rgba(45,90,27,0.2) 0%, transparent 50%);
+radial-gradient(ellipse at 30% 20%, rgba(200,150,12,0.18) 0%, transparent 55%),
+radial-gradient(ellipse at 70% 80%, rgba(107,24,24,0.15) 0%, transparent 60%);
 }
 
-/* Tata silhouette SVG background */
-.tata-bg {
+/* Tata silhouettes background */
+.hero-bg {
 position: absolute;
 bottom: 0;
-left: 50%;
-transform: translateX(-50%);
+left: 0;
+right: 0;
 width: 100%;
-max-width: 900px;
-opacity: 0.08;
+height: 60%;
+opacity: 0.07;
+pointer-events: none;
 }
 
-.cover-content {
+.hero-content {
 position: relative;
 z-index: 2;
 text-align: center;
-max-width: 800px;
+max-width: 1000px;
+animation: fadeUp 1.5s ease-out;
 }
 
-.cover-eyebrow {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 600;
-font-size: 13px;
-letter-spacing: 4px;
-color: var(–or);
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(40px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 300;
+font-size: 12px;
+letter-spacing: 8px;
 text-transform: uppercase;
+color: var(–or);
+margin-bottom: 32px;
+opacity: 0;
+animation: fadeUp 1.2s 0.2s ease-out forwards;
+}
+
+.hero-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 500;
+font-size: clamp(96px, 18vw, 220px);
+line-height: 0.85;
+letter-spacing: -3px;
+color: var(–or-bright);
+margin-bottom: 12px;
+opacity: 0;
+animation: fadeUp 1.5s 0.5s ease-out forwards;
+}
+
+.hero-subtitle {
+font-family: ‘Cormorant Infant’, serif;
+font-style: italic;
+font-weight: 300;
+font-size: clamp(20px, 3vw, 32px);
+color: var(–beige);
+letter-spacing: 4px;
+margin-bottom: 50px;
+opacity: 0;
+animation: fadeUp 1.5s 0.8s ease-out forwards;
+}
+
+.hero-tagline {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-weight: 400;
+font-size: clamp(18px, 2.5vw, 26px);
+color: var(–crème);
+line-height: 1.5;
+max-width: 640px;
+margin: 0 auto 60px;
+opacity: 0;
+animation: fadeUp 1.5s 1.1s ease-out forwards;
+}
+
+.hero-tagline em {
+color: var(–or-bright);
+font-weight: 500;
+}
+
+.hero-cta {
+display: inline-flex;
+align-items: center;
+gap: 12px;
+padding: 18px 36px;
+background: transparent;
+border: 1px solid var(–or);
+color: var(–or-bright);
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 500;
+font-size: 13px;
+letter-spacing: 3px;
+text-transform: uppercase;
+text-decoration: none;
+transition: all 0.3s;
+opacity: 0;
+animation: fadeUp 1.5s 1.4s ease-out forwards;
+}
+
+.hero-cta:hover {
+background: var(–or);
+color: var(–terre-deep);
+transform: translateY(-2px);
+}
+
+.hero-cta svg { transition: transform 0.3s; }
+.hero-cta:hover svg { transform: translateX(4px); }
+
+.scroll-indicator {
+position: absolute;
+bottom: 40px;
+left: 50%;
+transform: translateX(-50%);
+color: var(–or);
+font-size: 11px;
+letter-spacing: 4px;
+text-transform: uppercase;
+opacity: 0;
+animation: fadeUp 1.5s 1.7s ease-out forwards, bounce 2s 2.5s infinite;
+}
+
+@keyframes bounce {
+0%, 100% { transform: translateX(-50%) translateY(0); }
+50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── SECTION DEFAULTS ────────────────────────────────────────────────── */
+section {
+padding: 120px 40px;
+position: relative;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.section-label {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 500;
+font-size: 11px;
+letter-spacing: 6px;
+text-transform: uppercase;
+color: var(–or-deep);
+margin-bottom: 20px;
+}
+
+.section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 500;
+font-size: clamp(40px, 6vw, 72px);
+line-height: 1.05;
+letter-spacing: -1.5px;
+color: var(–terre-deep);
+margin-bottom: 32px;
+}
+
+.section-title em {
+font-style: italic;
+color: var(–or-deep);
+font-family: ‘Cormorant Infant’, serif;
+}
+
+/* ── HISTOIRE ────────────────────────────────────────────────────────── */
+.histoire {
+background: var(–crème);
+padding-top: 160px;
+padding-bottom: 160px;
+}
+
+.histoire-grid {
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+gap: 80px;
+align-items: start;
+}
+
+@media (max-width: 900px) {
+.histoire-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.histoire-text p {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+line-height: 1.75;
+color: var(–terre-mid);
 margin-bottom: 24px;
 }
 
-.cover-title {
-font-family: ‘Playfair Display’, serif;
-font-size: clamp(72px, 12vw, 120px);
-font-weight: 900;
-color: var(–or);
-line-height: 0.9;
-letter-spacing: -2px;
-margin-bottom: 8px;
-}
-
-.cover-subtitle {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 300;
-font-size: clamp(18px, 3vw, 28px);
-letter-spacing: 8px;
-color: #D4B896;
-text-transform: uppercase;
-margin-bottom: 40px;
-}
-
-.cover-divider {
-width: 80px;
-height: 3px;
-background: var(–or);
-margin: 0 auto 40px;
-}
-
-.cover-tagline {
-font-family: ‘Playfair Display’, serif;
+.histoire-text p.intro {
+font-size: 26px;
 font-style: italic;
-font-size: 20px;
-color: #C8B090;
-margin-bottom: 60px;
+color: var(–terre-deep);
+margin-bottom: 36px;
 line-height: 1.5;
 }
 
-.cover-badges {
+.histoire-text strong {
+color: var(–or-deep);
+font-weight: 600;
+font-style: normal;
+}
+
+.histoire-image {
+position: relative;
+aspect-ratio: 4/5;
+background: var(–terre-mid);
+overflow: hidden;
+box-shadow: 0 30px 60px rgba(74,40,16,0.25);
+}
+
+/* SVG Tata illustration */
+.tata-illustration {
+width: 100%;
+height: 100%;
+display: block;
+}
+
+.histoire-image-caption {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+padding: 24px 28px;
+background: linear-gradient(to top, rgba(15,8,5,0.9), transparent);
+color: var(–crème);
+}
+
+.histoire-image-caption .label {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 10px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–or-bright);
+margin-bottom: 4px;
+}
+
+.histoire-image-caption .title {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-size: 20px;
+}
+
+/* ── MANIFESTE ───────────────────────────────────────────────────────── */
+.manifeste {
+background: var(–terre-deep);
+color: var(–crème);
+text-align: center;
+padding-top: 180px;
+padding-bottom: 180px;
+position: relative;
+overflow: hidden;
+}
+
+.manifeste::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse at 50% 50%, rgba(200,150,12,0.1) 0%, transparent 70%);
+}
+
+.manifeste .section-label { color: var(–or-bright); }
+.manifeste .section-title { color: var(–crème); }
+
+.manifeste-quote {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-weight: 400;
+font-size: clamp(32px, 5vw, 56px);
+line-height: 1.3;
+color: var(–crème);
+max-width: 900px;
+margin: 60px auto;
+position: relative;
+z-index: 2;
+}
+
+.manifeste-quote span {
+color: var(–or-bright);
+font-weight: 500;
+}
+
+.manifeste-signature {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 12px;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: var(–or);
+margin-top: 40px;
+position: relative;
+z-index: 2;
+}
+
+/* ── PILIERS (3 columns) ─────────────────────────────────────────────── */
+.piliers {
+background: var(–crème-warm);
+padding-top: 160px;
+padding-bottom: 160px;
+}
+
+.piliers-header {
+text-align: center;
+max-width: 700px;
+margin: 0 auto 100px;
+}
+
+.piliers-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 60px;
+}
+
+@media (max-width: 900px) {
+.piliers-grid { grid-template-columns: 1fr; gap: 50px; }
+}
+
+.pilier {
+text-align: center;
+position: relative;
+}
+
+.pilier-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 300;
+font-size: 90px;
+line-height: 1;
+color: var(–or-bright);
+opacity: 0.4;
+margin-bottom: 16px;
+}
+
+.pilier-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 500;
+font-size: 28px;
+color: var(–terre-deep);
+margin-bottom: 20px;
+}
+
+.pilier-text {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 300;
+font-size: 16px;
+line-height: 1.7;
+color: var(–terre-mid);
+}
+
+/* ── VISION (with map) ───────────────────────────────────────────────── */
+.vision {
+background: var(–noir);
+color: var(–crème);
+padding-top: 160px;
+padding-bottom: 160px;
+position: relative;
+overflow: hidden;
+}
+
+.vision .section-label { color: var(–or-bright); }
+.vision .section-title { color: var(–crème); }
+
+.vision-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+
+@media (max-width: 900px) {
+.vision-grid { grid-template-columns: 1fr; gap: 60px; }
+}
+
+.vision-text p {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px;
+line-height: 1.6;
+color: var(–crème-warm);
+margin-bottom: 28px;
+}
+
+.vision-text p strong {
+color: var(–or-bright);
+font-weight: 500;
+}
+
+.vision-stages {
+margin-top: 40px;
+}
+
+.stage {
 display: flex;
-gap: 16px;
+gap: 24px;
+padding: 24px 0;
+border-bottom: 1px solid rgba(200,150,12,0.2);
+}
+
+.stage:last-child { border-bottom: none; }
+
+.stage-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-size: 36px;
+color: var(–or-bright);
+line-height: 1;
+flex-shrink: 0;
+width: 50px;
+}
+
+.stage-content h4 {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 500;
+font-size: 11px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–or);
+margin-bottom: 8px;
+}
+
+.stage-content h3 {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 500;
+font-size: 26px;
+color: var(–crème);
+margin-bottom: 8px;
+}
+
+.stage-content p {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 300;
+font-size: 14px;
+color: var(–beige);
+margin: 0;
+line-height: 1.6;
+}
+
+/* Africa map SVG container */
+.map-container {
+position: relative;
+aspect-ratio: 1/1.1;
+}
+
+.map-svg {
+width: 100%;
+height: 100%;
+}
+
+/* ── CHIFFRES ────────────────────────────────────────────────────────── */
+.chiffres {
+background: var(–rouge-sang);
+color: var(–crème);
+padding: 100px 40px;
+}
+
+.chiffres-grid {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 40px;
+text-align: center;
+}
+
+@media (max-width: 768px) {
+.chiffres-grid { grid-template-columns: repeat(2, 1fr); gap: 50px; }
+}
+
+.chiffre-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 400;
+font-size: clamp(48px, 6vw, 72px);
+line-height: 1;
+color: var(–or-bright);
+margin-bottom: 12px;
+}
+
+.chiffre-label {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 300;
+font-size: 13px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(–crème);
+line-height: 1.5;
+}
+
+/* ── REJOINDRE ───────────────────────────────────────────────────────── */
+.rejoindre {
+background: var(–crème);
+text-align: center;
+padding: 180px 40px;
+position: relative;
+overflow: hidden;
+}
+
+.rejoindre::before {
+content: ‘TKT’;
+position: absolute;
+bottom: -20px;
+left: 50%;
+transform: translateX(-50%);
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 700;
+font-size: 380px;
+color: var(–or-bright);
+opacity: 0.06;
+line-height: 0.8;
+pointer-events: none;
+letter-spacing: -10px;
+}
+
+.rejoindre-content { position: relative; z-index: 2; }
+
+.rejoindre h2 {
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 500;
+font-size: clamp(48px, 7vw, 88px);
+line-height: 1.05;
+color: var(–terre-deep);
+margin-bottom: 32px;
+letter-spacing: -2px;
+}
+
+.rejoindre h2 em {
+font-style: italic;
+color: var(–or-deep);
+font-family: ‘Cormorant Infant’, serif;
+}
+
+.rejoindre p {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-size: clamp(18px, 2.2vw, 24px);
+color: var(–terre-mid);
+max-width: 600px;
+margin: 0 auto 50px;
+line-height: 1.6;
+}
+
+.rejoindre-cta-group {
+display: flex;
+gap: 20px;
 justify-content: center;
 flex-wrap: wrap;
 }
 
-.badge {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 600;
-font-size: 12px;
-letter-spacing: 2px;
-text-transform: uppercase;
-padding: 8px 20px;
-border: 1px solid rgba(200,150,12,0.5);
-color: var(–or-light);
-background: rgba(200,150,12,0.1);
-}
-
-/* ── PAGE LAYOUT ── */
-.page {
-max-width: 960px;
-margin: 0 auto;
-padding: 60px 40px;
-}
-
-/* ── SECTION HEADERS ── */
-.section-label {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-font-size: 11px;
-letter-spacing: 5px;
-text-transform: uppercase;
-color: var(–or);
-margin-bottom: 8px;
-}
-
-.section-title {
-font-family: ‘Playfair Display’, serif;
-font-size: 36px;
-font-weight: 700;
-color: var(–terre-dark);
-margin-bottom: 6px;
-line-height: 1.1;
-}
-
-.section-sub {
-font-size: 15px;
-color: var(–gris);
-margin-bottom: 40px;
-font-style: italic;
-}
-
-.section-rule {
-width: 60px;
-height: 4px;
-background: var(–or);
-margin-bottom: 40px;
-}
-
-/* ── TATA CONCEPT VISUAL ── */
-.tata-concept {
-background: var(–terre-dark);
-color: var(–blanc);
-padding: 0;
-position: relative;
-overflow: hidden;
-margin: 0 -40px;
-}
-
-.tata-header {
-padding: 60px 60px 0;
-position: relative;
-z-index: 2;
-}
-
-.tata-header .section-label { color: var(–or); }
-.tata-header .section-title { color: var(–or-light); }
-.tata-header .section-sub { color: #C8B090; }
-
-/* The architectural diagram */
-.tata-diagram {
-display: flex;
-justify-content: center;
-padding: 40px 60px 0;
-position: relative;
-}
-
-.tata-svg-wrap {
-position: relative;
-width: 100%;
-max-width: 780px;
-}
-
-.floor-labels {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 20px;
-padding: 0 60px 60px;
-margin-top: -20px;
-position: relative;
-z-index: 2;
-}
-
-.floor-card {
-background: rgba(255,255,255,0.07);
-border: 1px solid rgba(200,150,12,0.3);
-padding: 20px;
-position: relative;
-}
-
-.floor-card::before {
-content: attr(data-level);
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-font-size: 48px;
-color: rgba(200,150,12,0.15);
-position: absolute;
-top: 8px;
-right: 12px;
-line-height: 1;
-}
-
-.floor-name {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 13px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: var(–or);
-margin-bottom: 6px;
-}
-
-.floor-title {
-font-family: ‘Playfair Display’, serif;
-font-size: 18px;
-color: var(–or-light);
-margin-bottom: 10px;
-}
-
-.floor-desc {
-font-size: 13px;
-color: #B8A890;
-line-height: 1.5;
-}
-
-/* ── ZONES GRID ── */
-.zones-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 2px;
-margin-bottom: 40px;
-background: #D4C8B0;
-}
-
-.zone-card {
-background: var(–blanc);
-padding: 28px;
-position: relative;
-overflow: hidden;
-}
-
-.zone-card::after {
-content: attr(data-icon);
-position: absolute;
-bottom: -10px;
-right: 10px;
-font-size: 64px;
-opacity: 0.06;
-line-height: 1;
-}
-
-.zone-card.accent { background: var(–terre-dark); }
-.zone-card.accent .zone-title { color: var(–or-light); }
-.zone-card.accent .zone-text { color: #C0B090; }
-.zone-card.accent .zone-items li { color: #C8B890; border-color: rgba(200,150,12,0.3); }
-.zone-card.accent .zone-items li::before { color: var(–or); }
-
-.zone-number {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-font-size: 11px;
-letter-spacing: 3px;
-color: var(–or);
-text-transform: uppercase;
-margin-bottom: 10px;
-}
-
-.zone-title {
-font-family: ‘Playfair Display’, serif;
-font-size: 22px;
-color: var(–terre-dark);
-margin-bottom: 10px;
-line-height: 1.2;
-}
-
-.zone-text {
-font-size: 13px;
-color: var(–gris);
-margin-bottom: 16px;
-line-height: 1.6;
-}
-
-.zone-items {
-list-style: none;
-}
-
-.zone-items li {
-font-size: 13px;
-color: var(–gris);
-padding: 5px 0;
-border-bottom: 1px solid rgba(0,0,0,0.06);
-display: flex;
-align-items: flex-start;
-gap: 8px;
-}
-
-.zone-items li::before {
-content: ‘→’;
-color: var(–or);
-font-weight: 700;
-flex-shrink: 0;
-margin-top: 1px;
-}
-
-/* ── EQUIPMENT TABLE ── */
-.equip-section {
-background: var(–vert);
-color: var(–blanc);
-margin: 0 -40px;
-padding: 60px 80px;
-}
-
-.equip-section .section-label { color: var(–or); }
-.equip-section .section-title { color: var(–or-light); }
-.equip-section .section-sub { color: #A8C890; }
-
-.equip-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 16px;
-margin-top: 40px;
-}
-
-.equip-card {
-background: rgba(255,255,255,0.08);
-border: 1px solid rgba(200,150,12,0.25);
-padding: 24px;
-transition: background 0.2s;
-}
-
-.equip-icon {
-font-size: 28px;
-margin-bottom: 12px;
-}
-
-.equip-name {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 15px;
-letter-spacing: 1px;
-color: var(–or-light);
-margin-bottom: 6px;
-text-transform: uppercase;
-}
-
-.equip-spec {
-font-size: 12px;
-color: #90B870;
-margin-bottom: 10px;
-font-weight: 600;
-}
-
-.equip-desc {
-font-size: 12px;
-color: #A8C090;
-line-height: 1.5;
-}
-
-/* ── PROCESS FLOW ── */
-.process-flow {
-display: flex;
-gap: 0;
-margin: 40px 0;
-overflow-x: auto;
-}
-
-.process-step {
-flex: 1;
-min-width: 130px;
-background: var(–blanc);
-border: 1px solid #D4C8B0;
-border-right: none;
-padding: 24px 16px;
-position: relative;
-text-align: center;
-}
-
-.process-step:last-child {
-border-right: 1px solid #D4C8B0;
-}
-
-.process-step::after {
-content: ‘▶’;
-position: absolute;
-right: -12px;
-top: 50%;
-transform: translateY(-50%);
-color: var(–or);
-font-size: 14px;
-z-index: 1;
-background: var(–bg);
-padding: 2px;
-}
-
-.process-step:last-child::after { display: none; }
-
-.step-num {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-font-size: 36px;
-color: var(–or-light);
-line-height: 1;
-margin-bottom: 8px;
-}
-
-.step-name {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 13px;
-text-transform: uppercase;
-letter-spacing: 1px;
-color: var(–terre-dark);
-margin-bottom: 6px;
-}
-
-.step-time {
-font-size: 11px;
-color: var(–or-dark);
-font-weight: 600;
-background: var(–or-light);
-padding: 2px 8px;
-display: inline-block;
-margin-bottom: 8px;
-}
-
-.step-desc {
-font-size: 11px;
-color: var(–gris);
-line-height: 1.4;
-}
-
-/* ── TEAM ── */
-.team-grid {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 16px;
-margin: 40px 0;
-}
-
-.team-card {
-text-align: center;
-padding: 28px 16px;
-background: var(–blanc);
-border: 1px solid #D4C8B0;
-position: relative;
-}
-
-.team-icon {
-font-size: 40px;
-margin-bottom: 12px;
-}
-
-.team-role {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 13px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: var(–or-dark);
-margin-bottom: 8px;
-}
-
-.team-title {
-font-family: ‘Playfair Display’, serif;
-font-size: 16px;
-color: var(–terre-dark);
-margin-bottom: 10px;
-}
-
-.team-desc {
-font-size: 12px;
-color: var(–gris);
-line-height: 1.5;
-}
-
-/* ── COSTS ── */
-.costs-section {
-background: var(–noir);
-color: var(–blanc);
-margin: 0 -40px;
-padding: 60px 80px;
-}
-
-.costs-section .section-title { color: var(–or); }
-.costs-section .section-label { color: #C8A060; }
-.costs-section .section-sub { color: #A09080; }
-
-.cost-table {
-width: 100%;
-border-collapse: collapse;
-margin-top: 30px;
-}
-
-.cost-table th {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 11px;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(–or);
-padding: 12px 16px;
-border-bottom: 1px solid rgba(200,150,12,0.3);
-text-align: left;
-}
-
-.cost-table td {
-padding: 14px 16px;
-font-size: 14px;
-border-bottom: 1px solid rgba(255,255,255,0.06);
-color: #C8C0B0;
-}
-
-.cost-table tr:hover td { background: rgba(255,255,255,0.03); }
-
-.cost-table .cost-cat {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 600;
-font-size: 13px;
-letter-spacing: 1px;
-color: var(–or-light);
-text-transform: uppercase;
-}
-
-.cost-table .cost-amount {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 16px;
-color: #90C870;
-text-align: right;
-}
-
-.cost-total {
-background: rgba(200,150,12,0.1);
-border-top: 2px solid var(–or) !important;
-}
-
-.cost-total td {
-color: var(–or-light) !important;
-font-weight: 700;
-}
-
-.cost-total .cost-amount {
-font-size: 22px !important;
-color: var(–or) !important;
-}
-
-/* ── IDENTITY ── */
-.identity-strip {
-background: var(–or);
-padding: 50px 80px;
-margin: 0 -40px;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 40px;
-align-items: start;
-}
-
-.id-block {}
-.id-label {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 800;
-font-size: 10px;
-letter-spacing: 4px;
-text-transform: uppercase;
-color: var(–terre-dark);
-margin-bottom: 8px;
-}
-
-.id-value {
-font-family: ‘Playfair Display’, serif;
-font-size: 22px;
-color: var(–terre-dark);
-font-weight: 700;
-line-height: 1.3;
-}
-
-.id-sub {
-font-size: 13px;
-color: var(–terre-dark);
-margin-top: 6px;
-opacity: 0.75;
-}
-
-/* ── REPLICATION ── */
-.replication-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 2px;
-background: #D4C8B0;
-margin: 30px 0;
-}
-
-.rep-card {
-background: var(–blanc);
-padding: 28px;
-}
-
-.rep-card.dark { background: var(–terre-dark); }
-
-.rep-num {
-font-family: ‘Playfair Display’, serif;
-font-size: 52px;
-font-weight: 900;
-color: var(–or-light);
-line-height: 1;
-margin-bottom: 8px;
-}
-
-.rep-card.dark .rep-num { color: var(–or); }
-
-.rep-label {
-font-family: ‘Barlow Condensed’, sans-serif;
-font-weight: 700;
-font-size: 12px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: var(–gris);
-margin-bottom: 4px;
-}
-
-.rep-card.dark .rep-label { color: #C8B090; }
-
-.rep-title {
-font-size: 15px;
-color: var(–terre-dark);
-font-weight: 600;
-}
-
-.rep-card.dark .rep-title { color: var(–or-light); }
-
-/* ── FOOTER ── */
-.doc-footer {
-background: var(–terre-dark);
-color: #A09070;
-padding: 40px 80px;
-margin: 0 -40px -60px;
-display: flex;
-justify-content: space-between;
+.btn-primary, .btn-secondary {
+display: inline-flex;
 align-items: center;
-font-size: 12px;
-font-family: ‘Barlow Condensed’, sans-serif;
-letter-spacing: 2px;
+gap: 12px;
+padding: 20px 38px;
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 500;
+font-size: 13px;
+letter-spacing: 3px;
 text-transform: uppercase;
+text-decoration: none;
+transition: all 0.3s;
+cursor: pointer;
+border: none;
+}
+
+.btn-primary {
+background: var(–terre-deep);
+color: var(–or-bright);
+border: 1px solid var(–terre-deep);
+}
+
+.btn-primary:hover {
+background: var(–or-deep);
+color: var(–crème);
+border-color: var(–or-deep);
+transform: translateY(-2px);
+}
+
+.btn-secondary {
+background: transparent;
+color: var(–terre-deep);
+border: 1px solid var(–terre-deep);
+}
+
+.btn-secondary:hover {
+background: var(–terre-deep);
+color: var(–crème);
+transform: translateY(-2px);
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────── */
+footer {
+background: var(–terre-deep);
+color: var(–beige);
+padding: 60px 40px 40px;
+}
+
+.footer-content {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 2fr;
+gap: 60px;
+margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+.footer-content { grid-template-columns: 1fr; }
 }
 
 .footer-brand {
-font-family: ‘Playfair Display’, serif;
-font-size: 24px;
-font-weight: 900;
-color: var(–or);
-letter-spacing: 0;
-text-transform: none;
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 700;
+font-size: 56px;
+color: var(–or-bright);
+line-height: 1;
+margin-bottom: 12px;
+letter-spacing: -1px;
 }
 
-/* ── DIVIDERS ── */
-.page-break {
-width: 100%;
-height: 3px;
-background: linear-gradient(90deg, transparent, var(–or), transparent);
-margin: 60px 0;
+.footer-tagline {
+font-family: ‘Cormorant Infant’, serif;
+font-style: italic;
+color: var(–beige);
+font-size: 16px;
 }
 
-.inline-accent {
-color: var(–or-dark);
+.footer-info {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 30px;
+}
+
+@media (max-width: 600px) {
+.footer-info { grid-template-columns: 1fr; gap: 24px; }
+}
+
+.footer-col h5 {
+font-family: ‘Bricolage Grotesque’, sans-serif;
 font-weight: 600;
+font-size: 11px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–or);
+margin-bottom: 16px;
 }
 
-/* ── PRINT ── */
-@media print {
-.cover { min-height: auto; page-break-after: always; }
-.page { padding: 40px; }
+.footer-col p, .footer-col a {
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-weight: 300;
+font-size: 14px;
+color: var(–beige);
+line-height: 1.7;
+text-decoration: none;
+display: block;
+}
+
+.footer-col a:hover { color: var(–or-bright); }
+
+.footer-bottom {
+max-width: 1200px;
+margin: 0 auto;
+padding-top: 30px;
+border-top: 1px solid rgba(200,150,12,0.15);
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 20px;
+font-family: ‘Bricolage Grotesque’, sans-serif;
+font-size: 11px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: rgba(212,184,150,0.5);
+}
+
+/* ── REVEAL ON SCROLL ───────────────────────────────────────────────── */
+.reveal {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.reveal.visible {
+opacity: 1;
+transform: translateY(0);
 }
 </style>
 
 </head>
 <body>
 
-<!-- ══ COVER ══════════════════════════════════════════════════════════ -->
+<!-- ══ NAV ════════════════════════════════════════════════════════════════ -->
 
-<div class="cover">
-  <svg class="tata-bg" viewBox="0 0 900 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Tata somba silhouette -->
-    <rect x="150" y="200" width="600" height="200" fill="white"/>
-    <rect x="200" y="140" width="120" height="260" rx="60" fill="white"/>
-    <rect x="580" y="140" width="120" height="260" rx="60" fill="white"/>
-    <rect x="390" y="120" width="120" height="280" rx="60" fill="white"/>
-    <rect x="160" y="180" width="580" height="30" fill="white"/>
-    <!-- Granaries on top -->
-    <ellipse cx="260" cy="140" rx="50" ry="20" fill="white"/>
-    <ellipse cx="640" cy="140" rx="50" ry="20" fill="white"/>
-    <ellipse cx="450" cy="120" rx="50" ry="20" fill="white"/>
-    <!-- Small windows -->
-    <rect x="230" y="220" width="20" height="30" fill="#5C3A1A"/>
-    <rect x="610" y="220" width="20" height="30" fill="#5C3A1A"/>
-    <rect x="440" y="200" width="20" height="30" fill="#5C3A1A"/>
-    <!-- Door -->
-    <rect x="420" y="340" width="60" height="60" rx="30" fill="#5C3A1A"/>
-    <!-- Ground -->
-    <rect x="0" y="390" width="900" height="10" fill="white"/>
+<nav>
+  <a href="#" class="nav-logo">TKT</a>
+  <ul class="nav-links">
+    <li><a href="#histoire">Histoire</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#rejoindre">Rejoindre</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ═══════════════════════════════════════════════════════════════ -->
+
+<section class="hero">
+  <!-- Tata silhouettes background -->
+  <svg class="hero-bg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Multiple tata silhouettes -->
+    <g fill="#C8960C">
+      <!-- Tata 1 -->
+      <path d="M 100 600 L 100 380 L 130 380 L 130 280 Q 130 250 160 250 Q 190 250 190 280 L 190 380 L 250 380 L 250 250 Q 250 220 290 220 Q 330 220 330 250 L 330 380 L 390 380 L 390 280 Q 390 250 420 250 Q 450 250 450 280 L 450 380 L 480 380 L 480 600 Z"/>
+      <!-- Tata 2 -->
+      <path d="M 600 600 L 600 400 L 625 400 L 625 310 Q 625 285 650 285 Q 675 285 675 310 L 675 400 L 720 400 L 720 290 Q 720 265 752 265 Q 784 265 784 290 L 784 400 L 829 400 L 829 310 Q 829 285 854 285 Q 879 285 879 310 L 879 400 L 904 400 L 904 600 Z"/>
+      <!-- Tata 3 -->
+      <path d="M 1080 600 L 1080 360 L 1110 360 L 1110 260 Q 1110 230 1140 230 Q 1170 230 1170 260 L 1170 360 L 1230 360 L 1230 230 Q 1230 200 1270 200 Q 1310 200 1310 230 L 1310 360 L 1370 360 L 1370 260 Q 1370 230 1400 230 Q 1430 230 1430 260 L 1430 360 L 1460 360 L 1460 600 Z"/>
+    </g>
   </svg>
 
-  <div class="cover-content">
-    <div class="cover-eyebrow">🇧🇯 Bénin × Québec 🇨🇦 &nbsp;—&nbsp; Document de Référence</div>
-    <div class="cover-title">TKT</div>
-    <div class="cover-subtitle">Tchoukoutou</div>
-    <div class="cover-divider"></div>
-    <div class="cover-tagline">
-      Fiche Concept — Unité Type<br>
-      <span style="font-size:16px;letter-spacing:2px;">La Tata Brasserie</span>
-    </div>
-    <div class="cover-badges">
-      <div class="badge">Architecture Tata Somba</div>
-      <div class="badge">Transfert Technologique Pur · Québec → Bénin</div>
-      <div class="badge">Module Réplicable</div>
-      <div class="badge">Patrimoine UNESCO</div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ PAGE 1 — CONCEPT ══════════════════════════════════════════════ -->
-
-<div class="page">
-
-  <div style="margin-bottom:16px; margin-top:8px;">
-    <div class="section-label">01 — Concept</div>
-    <div class="section-title">La Tata Brasserie</div>
-    <div class="section-rule"></div>
-    <p style="font-size:15px; color:var(--gris); max-width:680px; line-height:1.8; margin-bottom:16px;">
-      Chaque unité TKT est une <span class="inline-accent">forteresse de terre crue</span> inspirée de l'architecture ancestrale Somba — avec, à l'intérieur, une <span class="inline-accent">microbrasserie moderne</span> digne des meilleurs brewpubs québécois. L'extérieur raconte 1000 ans d'histoire. L'intérieur brasse l'avenir.
+  <div class="hero-content">
+    <div class="hero-eyebrow">🇧🇯  Bénin × Québec  🇨🇦</div>
+    <h1 class="hero-title">TKT</h1>
+    <div class="hero-subtitle">TCHOUKOUTOU</div>
+    <p class="hero-tagline">
+      La <em>bière ancestrale</em> des femmes Somba<br>
+      du nord Bénin, brassée pour <em>aujourd'hui</em>.
     </p>
-    <p style="font-size:14px; color:var(--gris); max-width:680px; line-height:1.7; font-style:italic;">
-      « Tu t'abaisses pour franchir la petite porte — signe de respect dans la tradition Somba.
-      À l'intérieur, des cuves en inox brillent derrière les murs en banco. La tchoukoutière te sert ton TKT Classic dans une calebasse. Sur la terrasse, les montagnes de l'Atacora. Tu es dans le passé et le futur en même temps. »
-    </p>
+    <a href="#histoire" class="hero-cta">
+      Découvrir le projet
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+        <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </a>
   </div>
 
-  <div class="page-break"></div>
+  <div class="scroll-indicator">↓ &nbsp; faire défiler</div>
+</section>
 
-  <!-- TATA CONCEPT — Architecture Section -->
+<!-- ══ HISTOIRE ═══════════════════════════════════════════════════════════ -->
 
-  <div class="tata-concept">
-    <div class="tata-header">
-      <div class="section-label">02 — Architecture</div>
-      <div class="section-title">Plan Fonctionnel — 3 Niveaux</div>
-      <div class="section-sub">La tata traditionnelle réinterprétée pour la production brassicole</div>
-    </div>
+<section class="histoire" id="histoire">
+  <div class="container">
+    <div class="histoire-grid">
+      <div class="histoire-text reveal">
+        <div class="section-label">01 — L'origine</div>
+        <h2 class="section-title">Une <em>bière millénaire</em>, brassée par les femmes du peuple Somba</h2>
 
 ```
-<div class="tata-diagram">
-  <!-- SVG Tata Cross-section -->
-  <svg viewBox="0 0 780 380" style="width:100%;max-width:780px;" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Ground -->
-    <rect x="0" y="350" width="780" height="30" fill="#3A2A10"/>
+    <p class="intro">Le tchoukoutou n'est pas une nouveauté. Il est brassé depuis des siècles dans les villages du nord Bénin — par les <strong>tchoukoutières</strong>, ces femmes gardiennes d'un savoir transmis de mère en fille.</p>
 
-    <!-- Main body -->
-    <rect x="100" y="150" width="580" height="200" fill="#5C3A1A"/>
-    <!-- Inner lighter zone (interior) -->
-    <rect x="120" y="165" width="540" height="185" fill="#6B4520"/>
+    <p>Une bière de <strong>sorgho rouge</strong>, fermentée naturellement, servie dans la calebasse, vivante et acidulée. Elle accompagne les naissances, les funérailles, les marchés, les retrouvailles. Elle est la bière sociale de toute une région.</p>
 
-    <!-- Left tower -->
-    <rect x="80" y="80" width="140" height="270" rx="70" fill="#5C3A1A"/>
-    <rect x="98" y="95" width="104" height="255" rx="52" fill="#6B4520"/>
-    <!-- Left tower top cap (granary) -->
-    <ellipse cx="150" cy="80" rx="70" ry="22" fill="#8B5A2B"/>
-    <ellipse cx="150" cy="74" rx="55" ry="15" fill="#A06030"/>
-
-    <!-- Right tower -->
-    <rect x="560" y="80" width="140" height="270" rx="70" fill="#5C3A1A"/>
-    <rect x="578" y="95" width="104" height="255" rx="52" fill="#6B4520"/>
-    <!-- Right tower top cap (granary) -->
-    <ellipse cx="630" cy="80" rx="70" ry="22" fill="#8B5A2B"/>
-    <ellipse cx="630" cy="74" rx="55" ry="15" fill="#A06030"/>
-
-    <!-- Center tower -->
-    <rect x="320" y="60" width="140" height="290" rx="70" fill="#5C3A1A"/>
-    <rect x="338" y="75" width="104" height="275" rx="52" fill="#6B4520"/>
-    <!-- Center tower top cap (granary) -->
-    <ellipse cx="390" cy="60" rx="70" ry="22" fill="#8B5A2B"/>
-    <ellipse cx="390" cy="54" rx="55" ry="15" fill="#A06030"/>
-
-    <!-- Flat roof/terrace between towers -->
-    <rect x="100" y="148" width="580" height="18" fill="#8B5A2B"/>
-
-    <!-- BREW TANKS inside towers (inox/silver) -->
-    <!-- Left tank -->
-    <rect x="118" y="110" width="64" height="200" rx="32" fill="#B8C8D8" opacity="0.9"/>
-    <rect x="122" y="115" width="56" height="190" rx="28" fill="#D0E0F0" opacity="0.8"/>
-    <!-- Tank label -->
-    <text x="150" y="215" text-anchor="middle" font-family="Arial" font-size="9" fill="#1A3A6B" font-weight="bold">CUVE</text>
-    <text x="150" y="225" text-anchor="middle" font-family="Arial" font-size="8" fill="#1A3A6B">500L</text>
-    <!-- Pipes -->
-    <line x1="182" y1="200" x2="220" y2="200" stroke="#C8960C" stroke-width="3"/>
-    <line x1="182" y1="170" x2="220" y2="170" stroke="#C8960C" stroke-width="2"/>
-
-    <!-- Right tank -->
-    <rect x="598" y="110" width="64" height="200" rx="32" fill="#B8C8D8" opacity="0.9"/>
-    <rect x="602" y="115" width="56" height="190" rx="28" fill="#D0E0F0" opacity="0.8"/>
-    <text x="630" y="215" text-anchor="middle" font-family="Arial" font-size="9" fill="#1A3A6B" font-weight="bold">CUVE</text>
-    <text x="630" y="225" text-anchor="middle" font-family="Arial" font-size="8" fill="#1A3A6B">500L</text>
-    <line x1="598" y1="200" x2="560" y2="200" stroke="#C8960C" stroke-width="3"/>
-
-    <!-- Center fermentation tank -->
-    <rect x="358" y="90" width="64" height="220" rx="32" fill="#B8C8D8" opacity="0.9"/>
-    <rect x="362" y="95" width="56" height="210" rx="28" fill="#D0E0F0" opacity="0.8"/>
-    <text x="390" y="205" text-anchor="middle" font-family="Arial" font-size="9" fill="#1A3A6B" font-weight="bold">FERMENT.</text>
-    <text x="390" y="216" text-anchor="middle" font-family="Arial" font-size="8" fill="#1A3A6B">1000L</text>
-
-    <!-- Bar counter (ground floor) -->
-    <rect x="180" y="290" width="420" height="50" rx="4" fill="#8B5A2B"/>
-    <rect x="185" y="294" width="410" height="42" rx="3" fill="#A07040"/>
-    <!-- Bar taps -->
-    <rect x="280" y="272" width="8" height="22" fill="#C8960C"/>
-    <rect x="340" y="272" width="8" height="22" fill="#C8960C"/>
-    <rect x="400" y="272" width="8" height="22" fill="#C8960C"/>
-    <rect x="460" y="272" width="8" height="22" fill="#C8960C"/>
-    <!-- Tap heads -->
-    <ellipse cx="284" cy="272" rx="8" ry="5" fill="#E0B030"/>
-    <ellipse cx="344" cy="272" rx="8" ry="5" fill="#E0B030"/>
-    <ellipse cx="404" cy="272" rx="8" ry="5" fill="#E0B030"/>
-    <ellipse cx="464" cy="272" rx="8" ry="5" fill="#E0B030"/>
-
-    <!-- Entrance (small door) -->
-    <rect x="360" y="312" width="60" height="38" rx="30" fill="#3A2010"/>
-    <text x="390" y="336" text-anchor="middle" font-family="Arial" font-size="8" fill="#C8960C">ENTRÉE</text>
-
-    <!-- Windows -->
-    <rect x="220" y="220" width="28" height="40" rx="4" fill="#1A2A3A" opacity="0.8"/>
-    <rect x="530" y="220" width="28" height="40" rx="4" fill="#1A2A3A" opacity="0.8"/>
-
-    <!-- Terrace railing -->
-    <line x1="100" y1="150" x2="320" y2="150" stroke="#C8960C" stroke-width="2"/>
-    <line x1="460" y1="150" x2="680" y2="150" stroke="#C8960C" stroke-width="2"/>
-
-    <!-- Level labels -->
-    <!-- Level 3 -->
-    <rect x="0" y="50" width="75" height="22" fill="#C8960C"/>
-    <text x="8" y="65" font-family="Arial" font-size="10" font-weight="bold" fill="#3A2010">NIVEAU 3</text>
-    <line x1="75" y1="61" x2="100" y2="61" stroke="#C8960C" stroke-width="1" stroke-dasharray="4,3"/>
-
-    <!-- Level 2 -->
-    <rect x="0" y="145" width="75" height="22" fill="#3D7A25"/>
-    <text x="8" y="160" font-family="Arial" font-size="10" font-weight="bold" fill="white">NIVEAU 2</text>
-    <line x1="75" y1="156" x2="100" y2="156" stroke="#3D7A25" stroke-width="1" stroke-dasharray="4,3"/>
-
-    <!-- Level 1 -->
-    <rect x="0" y="285" width="75" height="22" fill="#1A3A6B"/>
-    <text x="8" y="300" font-family="Arial" font-size="10" font-weight="bold" fill="white">NIVEAU 1</text>
-    <line x1="75" y1="296" x2="180" y2="296" stroke="#1A3A6B" stroke-width="1" stroke-dasharray="4,3"/>
-
-    <!-- Annotations right side -->
-    <!-- Sorgho storage annotation -->
-    <line x1="680" y1="75" x2="720" y2="75" stroke="#C8960C" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="722" y="70" font-family="Arial" font-size="9" fill="#C8960C">Greniers</text>
-    <text x="722" y="82" font-family="Arial" font-size="9" fill="#C8960C">→ Silos sorgho</text>
-
-    <line x1="680" y1="145" x2="720" y2="145" stroke="#90C870" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="722" y="140" font-family="Arial" font-size="9" fill="#90C870">Terrasse</text>
-    <text x="722" y="152" font-family="Arial" font-size="9" fill="#90C870">→ Dégustation</text>
-
-    <line x1="680" y1="220" x2="720" y2="220" stroke="#90B8E0" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="722" y="215" font-family="Arial" font-size="9" fill="#90B8E0">Cuves visibles</text>
-    <text x="722" y="227" font-family="Arial" font-size="9" fill="#90B8E0">→ Effet vitrine</text>
-
-    <line x1="600" y1="310" x2="720" y2="310" stroke="#8090C0" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="722" y="305" font-family="Arial" font-size="9" fill="#8090C0">Bar + robinets</text>
-    <text x="722" y="317" font-family="Arial" font-size="9" fill="#8090C0">→ Service TKT</text>
-
-    <!-- North-South arrow for scale -->
-    <text x="390" y="375" text-anchor="middle" font-family="Arial" font-size="9" fill="#C8960C">← 18 à 22 mètres →</text>
-  </svg>
-</div>
-
-<div class="floor-labels">
-  <div class="floor-card" data-level="3">
-    <div class="floor-name">Niveau 3 — Terrasse + Greniers</div>
-    <div class="floor-title">Silos à sorgho & dégustation ciel ouvert</div>
-    <div class="floor-desc">Les greniers traditionnels deviennent des silos à sorgho local. La terrasse accueille les clients — vue sur les montagnes de l'Atacora. Espace cérémoniel pour événements culturels.</div>
+    <p>Mais elle se conserve à peine 48 heures. Elle reste informelle, fragile, menacée par les bières industrielles importées. <strong>TKT vient changer cela.</strong></p>
   </div>
-  <div class="floor-card" data-level="2">
-    <div class="floor-name">Niveau 2 — Tours & Cuves</div>
-    <div class="floor-title">Brassage visible depuis le bar</div>
-    <div class="floor-desc">Les tours rondes en banco accueillent les cuves en inox — visibles derrière verre depuis la salle. La fermentation se passe sous les yeux des clients. C'est du marketing vivant.</div>
-  </div>
-  <div class="floor-card" data-level="1">
-    <div class="floor-name">Niveau 1 — Rez-de-chaussée</div>
-    <div class="floor-title">Bar de service & zone d'accueil</div>
-    <div class="floor-desc">Comptoir en bois local, robinets TKT intégrés dans le mur de banco, calebasses et bouteilles. La petite porte d'entrée basse — on s'incline pour entrer, comme dans la tradition.</div>
+
+  <div class="histoire-image reveal">
+    <!-- SVG tata illustration -->
+    <svg class="tata-illustration" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#D4A04C"/>
+          <stop offset="0.6" stop-color="#A0552A"/>
+          <stop offset="1" stop-color="#5C2A10"/>
+        </linearGradient>
+        <linearGradient id="tataGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#8B5A2B"/>
+          <stop offset="1" stop-color="#4A2810"/>
+        </linearGradient>
+      </defs>
+      <!-- Sky -->
+      <rect width="400" height="500" fill="url(#skyGrad)"/>
+      <!-- Sun -->
+      <circle cx="320" cy="120" r="50" fill="#F5C870" opacity="0.6"/>
+      <circle cx="320" cy="120" r="35" fill="#F5C870" opacity="0.8"/>
+      <!-- Mountains -->
+      <path d="M 0 380 L 80 280 L 160 340 L 240 240 L 320 320 L 400 260 L 400 500 L 0 500 Z" fill="#3A1810" opacity="0.8"/>
+      <path d="M 0 420 L 100 360 L 200 400 L 300 350 L 400 380 L 400 500 L 0 500 Z" fill="#2A1208" opacity="0.9"/>
+      <!-- Tata main structure -->
+      <rect x="80" y="340" width="240" height="120" fill="url(#tataGrad)"/>
+      <!-- Towers -->
+      <rect x="60" y="240" width="70" height="220" rx="35" fill="url(#tataGrad)"/>
+      <rect x="270" y="240" width="70" height="220" rx="35" fill="url(#tataGrad)"/>
+      <rect x="165" y="200" width="70" height="260" rx="35" fill="url(#tataGrad)"/>
+      <!-- Granaries on top -->
+      <ellipse cx="95" cy="240" rx="40" ry="14" fill="#A06030"/>
+      <ellipse cx="200" cy="200" rx="40" ry="14" fill="#A06030"/>
+      <ellipse cx="305" cy="240" rx="40" ry="14" fill="#A06030"/>
+      <!-- Conical roofs -->
+      <path d="M 65 240 Q 95 215 125 240 Z" fill="#C08050"/>
+      <path d="M 170 200 Q 200 170 230 200 Z" fill="#C08050"/>
+      <path d="M 275 240 Q 305 215 335 240 Z" fill="#C08050"/>
+      <!-- Door -->
+      <rect x="180" y="410" width="40" height="50" rx="20" fill="#1A0805"/>
+      <!-- Windows -->
+      <rect x="85" y="320" width="14" height="20" rx="2" fill="#1A0805"/>
+      <rect x="295" y="320" width="14" height="20" rx="2" fill="#1A0805"/>
+      <!-- Wall texture lines -->
+      <line x1="80" y1="380" x2="320" y2="380" stroke="#3A1810" stroke-width="1" opacity="0.5"/>
+      <line x1="80" y1="420" x2="320" y2="420" stroke="#3A1810" stroke-width="1" opacity="0.5"/>
+      <!-- Person silhouette (tchoukoutière with calebasse) -->
+      <ellipse cx="370" cy="475" rx="12" ry="3" fill="#1A0805" opacity="0.4"/>
+      <path d="M 365 475 L 365 445 Q 365 435 372 435 Q 379 435 379 445 L 379 475 Z" fill="#2A1208"/>
+      <circle cx="372" cy="430" r="6" fill="#2A1208"/>
+      <ellipse cx="372" cy="425" rx="8" ry="3" fill="#A06030"/>
+      <!-- Ground -->
+      <rect y="475" width="400" height="25" fill="#2A1208"/>
+    </svg>
+
+    <div class="histoire-image-caption">
+      <div class="label">Tata Somba — Atacora, Bénin</div>
+      <div class="title">Patrimoine UNESCO depuis 2004</div>
+    </div>
   </div>
 </div>
 ```
 
   </div>
+</section>
 
-  <div class="page-break"></div>
+<!-- ══ MANIFESTE ══════════════════════════════════════════════════════════ -->
 
-  <!-- ZONES FONCTIONNELLES -->
-
-  <div class="section-label">03 — Espaces</div>
-  <div class="section-title">Les 6 Zones Fonctionnelles</div>
-  <div class="section-rule"></div>
-
-  <div class="zones-grid">
-    <div class="zone-card accent" data-icon="🏗️">
-      <div class="zone-number">Zone 01</div>
-      <div class="zone-title">Zone Brassage</div>
-      <div class="zone-text">Le cœur de production — isolé thermiquement, carrelé inox, accessible uniquement au personnel.</div>
-      <ul class="zone-items">
-        <li>Cuve de maltage : traitement du sorgho</li>
-        <li>Chaudière de cuisson à température contrôlée</li>
-        <li>Cuve de fermentation principale 1000L</li>
-        <li>Système de refroidissement et filtration</li>
-        <li>Carrelage inox — normes alimentaires</li>
-      </ul>
-    </div>
-    <div class="zone-card" data-icon="🍺">
-      <div class="zone-number">Zone 02</div>
-      <div class="zone-title">Tours-Cuves Visibles</div>
-      <div class="zone-text">Les tours rondes de la tata accueillent les cuves secondaires — visibles depuis le bar derrière paroi vitrée.</div>
-      <ul class="zone-items">
-        <li>2 cuves de fermentation 500L (tours latérales)</li>
-        <li>1 cuve de garde — conditionnement (tour centrale)</li>
-        <li>Paroi vitrée donnant sur la salle</li>
-        <li>Éclairage LED dramatique sur les cuves</li>
-        <li>Jauge de niveau visible — spectacle permanent</li>
-      </ul>
-    </div>
-    <div class="zone-card" data-icon="🎪">
-      <div class="zone-number">Zone 03</div>
-      <div class="zone-title">Bar & Service</div>
-      <div class="zone-text">Comptoir en bois local massif. Mur de banco brut. Robinets à bière intégrés dans la maçonnerie.</div>
-      <ul class="zone-items">
-        <li>4 à 6 robinets TKT (Classic, Doux, Saison)</li>
-        <li>Comptoir bois local (iroko ou teck béninois)</li>
-        <li>Étagères calebasses et bouteilles TKT</li>
-        <li>Affichage menu gravé dans le banco</li>
-        <li>Zone caisse + stockage froid</li>
-      </ul>
-    </div>
-    <div class="zone-card accent" data-icon="🌄">
-      <div class="zone-number">Zone 04</div>
-      <div class="zone-title">Terrasse Atacora</div>
-      <div class="zone-text">Le toit-terrasse traditionnel converti en espace de dégustation premium avec vue panoramique.</div>
-      <ul class="zone-items">
-        <li>20 à 30 places assises — mobilier local</li>
-        <li>Silos à sorgho intégrés (déco + fonctionnel)</li>
-        <li>Vue sur les montagnes de l'Atacora</li>
-        <li>Espace événementiel et cérémoniel</li>
-        <li>Éclairage tamisé — ambiance nuit étoilée</li>
-      </ul>
-    </div>
-    <div class="zone-card" data-icon="🌾">
-      <div class="zone-number">Zone 05</div>
-      <div class="zone-title">Stockage Matières</div>
-      <div class="zone-text">Zone dédiée à la réception et stockage du sorgho et des intrants — accessible depuis l'extérieur.</div>
-      <ul class="zone-items">
-        <li>Silos sorgho : capacité 2 à 3 tonnes</li>
-        <li>Quai de réception livraisons paysans</li>
-        <li>Stockage bouteilles vides et consignées</li>
-        <li>Local technique eau + CO2 + nettoyage</li>
-      </ul>
-    </div>
-    <div class="zone-card" data-icon="🎨">
-      <div class="zone-number">Zone 06</div>
-      <div class="zone-title">Identité & Expérience</div>
-      <div class="zone-text">La tata TKT est un monument vivant. Chaque surface raconte l'histoire des Somba et du TKT.</div>
-      <ul class="zone-items">
-        <li>Motifs Somba gravés dans le banco — tradition</li>
-        <li>Fresque murale histoire tchoukoutières</li>
-        <li>Petite porte d'entrée basse — rituel d'humilité</li>
-        <li>Panneau origines sorgho et terroir</li>
-        <li>Espace photo instagrammable — tour + cuves</li>
-      </ul>
-    </div>
-  </div>
-
-</div>
-
-<!-- ══ ÉQUIPEMENTS ══════════════════════════════════════════════════ -->
-
-<div class="equip-section">
-  <div class="section-label">04 — Équipements</div>
-  <div class="section-title">Kit Équipement Unité Type</div>
-  <div class="section-sub" style="color:#A8C890;">Spécifications techniques — transfert de technologie Québec → Bénin</div>
-
-  <div class="equip-grid">
-    <div class="equip-card">
-      <div class="equip-icon">🌾</div>
-      <div class="equip-name">Système de Maltage</div>
-      <div class="equip-spec">Capacité : 200 à 400 kg / cycle</div>
-      <div class="equip-desc">Trempage, germination contrôlée et touraillage du sorgho local. Adaptable aux variétés rouges de l'Atacora. Remplace le maltage artisanal au sol.</div>
-    </div>
-    <div class="equip-card">
-      <div class="equip-icon">🔥</div>
-      <div class="equip-name">Chaudière de Cuisson</div>
-      <div class="equip-spec">500 à 700 L — Inox alimentaire</div>
-      <div class="equip-desc">Cuisson du moût à température contrôlée. Double fond, agitateur mécanique, thermomètre digital. Alimentation gaz ou biomasse locale.</div>
-    </div>
-    <div class="equip-card">
-      <div class="equip-icon">🧪</div>
-      <div class="equip-name">Cuves de Fermentation</div>
-      <div class="equip-spec">3 cuves : 1×1000L + 2×500L</div>
-      <div class="equip-desc">Fermentation lactique contrôlée — spécificité du tchoukoutou. Vannes de prélèvement, système de CO2, jauge de niveau visible depuis la salle.</div>
-    </div>
-    <div class="equip-card">
-      <div class="equip-icon">❄️</div>
-      <div class="equip-name">Système de Refroidissement</div>
-      <div class="equip-spec">Groupe froid 2 à 4 kW</div>
-      <div class="equip-desc">Contrôle de la température de fermentation — critique pour standardiser le goût TKT dans le climat de l'Atacora (35°C+). Isolation thermique des cuves.</div>
-    </div>
-    <div class="equip-card">
-      <div class="equip-icon">🍾</div>
-      <div class="equip-name">Ligne d'Embouteillage</div>
-      <div class="equip-spec">Semi-automatique — 500 btl/heure</div>
-      <div class="equip-desc">Rinçage, remplissage, capsulage. Bouteilles 33cl et 65cl. Étiqueteuse manuelle dans un premier temps. Évolutif vers ligne automatique.</div>
-    </div>
-    <div class="equip-card">
-      <div class="equip-icon">🚰</div>
-      <div class="equip-name">Système Eau & Hygiène</div>
-      <div class="equip-spec">Traitement + CIP intégré</div>
-      <div class="equip-desc">Filtre à eau, adoucisseur, réservoir 2000L. Circuit CIP (Clean In Place) pour nettoyage automatique des cuves sans démontage. Norme alimentaire.</div>
-    </div>
-    <div class="equip-card">
-      <div class="equip-icon">🔬</div>
-      <div class="equip-name">Contrôle Qualité</div>
-      <div class="equip-spec">Laboratoire mini intégré</div>
-      <div class="equip-desc">pH-mètre, densimètre, thermomètre de précision, microscope de base. Protocole qualité TKT à respecter à chaque brassin. Fiches de suivi standardisées.</div>
-    </div>
-    <div class="equip-card">
-      <div class="equip-icon">🔋</div>
-      <div class="equip-name">Énergie & Autonomie</div>
-      <div class="equip-spec">Solaire + réseau + groupe</div>
-      <div class="equip-desc">Panneaux solaires pour l'éclairage et le froid. Groupe électrogène de secours. Conçu pour fonctionner dans des zones à coupures fréquentes.</div>
-    </div>
-    <div class="equip-card">
-      <div class="equip-icon">🚿</div>
-      <div class="equip-name">Fûts & Distribution</div>
-      <div class="equip-spec">Fûts inox 30L et 50L — KEG</div>
-      <div class="equip-desc">Système de tirage pression CO2 au bar. 10 à 15 fûts par unité pour rotation. Nettoyage et reconsignation. Robinets de service 4 à 6 lignes.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ PROCESSUS ══════════════════════════════════════════════════════ -->
-
-<div class="page">
-  <div class="section-label">05 — Production</div>
-  <div class="section-title">Le Processus TKT — Du Grain à la Calebasse</div>
-  <div class="section-rule"></div>
-  <p style="font-size:14px;color:var(--gris);margin-bottom:30px;">Cycle complet standardisé — 7 jours de la livraison du sorgho au verre servi au bar.</p>
-
-  <div class="process-flow">
-    <div class="process-step">
-      <div class="step-num">01</div>
-      <div class="step-name">Réception Sorgho</div>
-      <div class="step-time">Jour 1</div>
-      <div class="step-desc">Livraison paysans locaux. Contrôle qualité, humidité, variété. Pesée et enregistrement lot.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">02</div>
-      <div class="step-name">Maltage</div>
-      <div class="step-time">Jours 1→3</div>
-      <div class="step-desc">Trempage 24h. Germination 48h. Séchage touraillage. Activation enzymes.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">03</div>
-      <div class="step-name">Empâtage & Cuisson</div>
-      <div class="step-time">Jour 4 — 4h</div>
-      <div class="step-desc">Mouture du malt. Empâtage 65°C. Cuisson du moût. Filtration houblonnage.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">04</div>
-      <div class="step-name">Fermentation</div>
-      <div class="step-time">Jours 4→6</div>
-      <div class="step-desc">Ensemencement levures + bactéries lactiques. Fermentation 20-25°C contrôlée. Suivi pH et densité.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">05</div>
-      <div class="step-name">Garde & Filtration</div>
-      <div class="step-time">Jour 6 — 12h</div>
-      <div class="step-desc">Transfert cuve de garde. Clarification. Ajustement taux d'alcool et acidité. Contrôle organoleptique.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">06</div>
-      <div class="step-name">Mise en Fût / Bouteille</div>
-      <div class="step-time">Jour 7 — matin</div>
-      <div class="step-desc">Transfert fûts bar (service immédiat) ou embouteillage (distribution). Étiquetage lot TKT.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">07</div>
-      <div class="step-name">Service & Vente</div>
-      <div class="step-time">Jour 7 — soir</div>
-      <div class="step-desc">TKT frais au robinet, calebasse ou bouteille. Le cycle recommence le lendemain.</div>
-    </div>
-  </div>
-
-  <div style="background:var(--vert-light);border-left:4px solid var(--vert);padding:16px 20px;margin-top:8px;">
-    <strong style="color:var(--vert);font-family:'Barlow Condensed';font-size:13px;letter-spacing:1px;text-transform:uppercase;">Capacité & Rythme</strong>
-    <p style="font-size:13px;color:var(--gris);margin-top:6px;">2 à 3 brassins par semaine · 500 à 700 litres par brassin · Production hebdomadaire : <strong>1000 à 2100 litres</strong> · Ratio consommation locale / bouteilles distribution : <strong>60% / 40%</strong></p>
-  </div>
-
-  <div class="page-break"></div>
-
-  <!-- ÉQUIPE -->
-
-  <div class="section-label">06 — Ressources Humaines</div>
-  <div class="section-title">L'Équipe d'une Unité TKT</div>
-  <div class="section-rule"></div>
-
-  <div class="team-grid">
-    <div class="team-card">
-      <div class="team-icon">👨‍🔬</div>
-      <div class="team-role">Poste Clé</div>
-      <div class="team-title">Maître Brasseur</div>
-      <div class="team-desc">Formé au Québec ou sur place par partenaire QC. Responsable de la production, qualité et standardisation de la recette TKT. Gardien du goût.</div>
-    </div>
-    <div class="team-card">
-      <div class="team-icon">👩‍🍳</div>
-      <div class="team-role">Cœur du Projet</div>
-      <div class="team-title">Tchoukoutières (×2-3)</div>
-      <div class="team-desc">Les expertes traditionnelles. Co-productrices, garantes de l'authenticité. Intégrées comme détentrices du savoir ancestral — pas comme employées subalternes.</div>
-    </div>
-    <div class="team-card">
-      <div class="team-icon">🍺</div>
-      <div class="team-role">Service</div>
-      <div class="team-title">Serveurs (×1-2)</div>
-      <div class="team-desc">Service bar, tirage bière, vente bouteilles. Formés à l'histoire TKT et au storytelling de la marque — chaque client repart avec l'histoire.</div>
-    </div>
-    <div class="team-card">
-      <div class="team-icon">📦</div>
-      <div class="team-role">Logistique</div>
-      <div class="team-title">Agent Terrain</div>
-      <div class="team-desc">Réception sorgho paysans, gestion des stocks, livraison bouteilles aux points de vente locaux. Lien avec la filière agricole.</div>
-    </div>
-  </div>
-
-  <div style="background:var(--terre-light);border:1px solid #D4B890;padding:20px 24px;margin-top:8px;">
-    <strong style="color:var(--terre-dark);font-family:'Barlow Condensed';font-size:14px;letter-spacing:1px;text-transform:uppercase;">Masse salariale estimée par unité</strong>
-    <p style="font-size:13px;color:var(--gris);margin-top:8px;line-height:1.7;">
-      Maître Brasseur : 150 000 à 250 000 FCFA/mois ·
-      Tchoukoutières : 80 000 à 100 000 FCFA/mois ·
-      Serveurs : 60 000 à 80 000 FCFA/mois ·
-      Agent terrain : 70 000 FCFA/mois<br>
-      <strong>Total estimé : 500 000 à 700 000 FCFA/mois par unité</strong> (~750 à 1 000 €)
+<section class="manifeste">
+  <div class="container reveal">
+    <div class="section-label">02 — Le manifeste</div>
+    <h2 class="section-title">Notre conviction</h2>
+    <p class="manifeste-quote">
+      « Nous ne créons pas une nouvelle bière.<br>
+      Nous <span>réveillons</span> celle que nos grands-mères<br>
+      brassent depuis <span>mille ans</span>. »
     </p>
+    <div class="manifeste-signature">— L'équipe TKT</div>
+  </div>
+</section>
+
+<!-- ══ PILIERS ════════════════════════════════════════════════════════════ -->
+
+<section class="piliers">
+  <div class="container">
+    <div class="piliers-header reveal">
+      <div class="section-label">03 — Trois piliers</div>
+      <h2 class="section-title">Ce qui rend TKT <em>unique</em></h2>
+    </div>
+
+```
+<div class="piliers-grid">
+  <div class="pilier reveal">
+    <div class="pilier-num">01</div>
+    <h3 class="pilier-title">Les Tchoukoutières</h3>
+    <p class="pilier-text">Co-productrices et garantes de l'authenticité. Leur savoir ancestral est le cœur de la recette TKT — pas un décor folklorique, mais un héritage rémunéré et reconnu.</p>
   </div>
 
-</div>
+  <div class="pilier reveal">
+    <div class="pilier-num">02</div>
+    <h3 class="pilier-title">La Tata Brasserie</h3>
+    <p class="pilier-text">Chaque établissement TKT est une forteresse en banco — architecture Somba traditionnelle UNESCO — abritant une microbrasserie moderne. L'extérieur raconte 1000 ans. L'intérieur brasse demain.</p>
+  </div>
 
-<!-- ══ COÛTS ══════════════════════════════════════════════════════════ -->
-
-<div class="costs-section">
-  <div class="section-label">07 — Finances</div>
-  <div class="section-title">Estimation d'Investissement — Unité Type</div>
-  <p style="font-size:14px;color:#A09080;margin-bottom:10px;font-style:italic;">Ordre de grandeur — à affiner avec chiffrage terrain. Toutes estimations en FCFA et en CAD approximatif.</p>
-
-  <table class="cost-table">
-    <thead>
-      <tr>
-        <th>Poste</th>
-        <th>Détail</th>
-        <th style="text-align:right">FCFA</th>
-        <th style="text-align:right">≈ CAD</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="cost-cat">Construction Tata</td>
-        <td style="font-size:13px;">Construction banco + maçonnerie traditionnelle, artisans locaux Somba, 3 niveaux ~150m²</td>
-        <td class="cost-amount">15 000 000</td>
-        <td class="cost-amount" style="font-size:14px;color:#7090C0;">~ 35 000</td>
-      </tr>
-      <tr>
-        <td class="cost-cat">Équipement Brassage</td>
-        <td style="font-size:13px;">Système maltage, chaudière, cuves fermentation (3), refroidissement, CIP</td>
-        <td class="cost-amount">18 000 000</td>
-        <td class="cost-amount" style="font-size:14px;color:#7090C0;">~ 42 000</td>
-      </tr>
-      <tr>
-        <td class="cost-cat">Embouteillage & Fûts</td>
-        <td style="font-size:13px;">Ligne semi-auto, fûts inox ×15, robinets bar ×6, système tirage</td>
-        <td class="cost-amount">6 000 000</td>
-        <td class="cost-amount" style="font-size:14px;color:#7090C0;">~ 14 000</td>
-      </tr>
-      <tr>
-        <td class="cost-cat">Aménagement Bar</td>
-        <td style="font-size:13px;">Comptoir bois local, mobilier, éclairage, vitrines cuves, décoration Somba</td>
-        <td class="cost-amount">4 000 000</td>
-        <td class="cost-amount" style="font-size:14px;color:#7090C0;">~ 9 000</td>
-      </tr>
-      <tr>
-        <td class="cost-cat">Énergie & Eau</td>
-        <td style="font-size:13px;">Panneaux solaires, groupe électrogène, traitement eau, réservoirs</td>
-        <td class="cost-amount">3 500 000</td>
-        <td class="cost-amount" style="font-size:14px;color:#7090C0;">~ 8 000</td>
-      </tr>
-      <tr>
-        <td class="cost-cat">Formation</td>
-        <td style="font-size:13px;">Formation maître brasseur (Québec ou sur place), protocoles, documentation recette</td>
-        <td class="cost-amount">2 500 000</td>
-        <td class="cost-amount" style="font-size:14px;color:#7090C0;">~ 6 000</td>
-      </tr>
-      <tr>
-        <td class="cost-cat">Fonds de Roulement</td>
-        <td style="font-size:13px;">3 premiers mois : sorgho, masse salariale, emballages, licences</td>
-        <td class="cost-amount">4 000 000</td>
-        <td class="cost-amount" style="font-size:14px;color:#7090C0;">~ 9 000</td>
-      </tr>
-      <tr>
-        <td class="cost-cat">Divers & Imprévus</td>
-        <td style="font-size:13px;">Permis, raccordements, imprévus chantier (10%)</td>
-        <td class="cost-amount">2 000 000</td>
-        <td class="cost-amount" style="font-size:14px;color:#7090C0;">~ 5 000</td>
-      </tr>
-      <tr class="cost-total">
-        <td class="cost-cat" style="font-size:16px;">TOTAL UNITÉ TYPE</td>
-        <td style="font-size:13px;font-style:italic;">Hors terrain (achat ou location à négocier localement)</td>
-        <td class="cost-amount" style="font-size:22px;">55 000 000</td>
-        <td class="cost-amount" style="font-size:20px;color:var(--or);">~ 128 000</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div style="margin-top:20px;padding:16px 20px;background:rgba(200,150,12,0.1);border-left:3px solid var(--or);">
-    <p style="font-size:13px;color:#C8B090;line-height:1.7;">
-      <strong style="color:var(--or);">Note :</strong> La construction en banco par des artisans Somba est significativement moins chère que la construction moderne — et c'est l'ADN du projet. L'équipement brassicole d'occasion québécois (microbrasseries qui upgradent) peut réduire ce poste de 30 à 40%. L'objectif est de garder le ticket d'entrée sous les <strong style="color:var(--or);">50 000 CAD</strong> pour les unités de réplication.
-    </p>
+  <div class="pilier reveal">
+    <div class="pilier-num">03</div>
+    <h3 class="pilier-title">Le Sorgho Local</h3>
+    <p class="pilier-text">100% béninois. Cultivé dans l'Atacora par des paysans en contrat direct. Chaque litre vendu enrichit le nord Bénin — pas une multinationale étrangère.</p>
   </div>
 </div>
+```
 
-<!-- ══ IDENTITÉ ══════════════════════════════════════════════════════ -->
+  </div>
+</section>
 
-<div class="identity-strip">
-  <div class="id-block">
-    <div class="id-label">Surface totale</div>
-    <div class="id-value">150 à 200 m²</div>
-    <div class="id-sub">3 niveaux · Empreinte au sol ~80m²</div>
+<!-- ══ VISION ═════════════════════════════════════════════════════════════ -->
+
+<section class="vision" id="vision">
+  <div class="container">
+    <div class="vision-grid">
+      <div class="vision-text reveal">
+        <div class="section-label">04 — La vision</div>
+        <h2 class="section-title">Conquérir le marché de <em>l'intérieur</em></h2>
+        <p>Pendant que les multinationales étrangères vendent leur bière standardisée aux Béninois, <strong>TKT modernise et diffuse leur propre patrimoine.</strong></p>
+        <p>Le combat ne se joue pas sur le prix. Il se joue sur l'identité, la fierté, l'appartenance — un terrain où aucun géant industriel ne peut nous suivre.</p>
+
+```
+    <div class="vision-stages">
+      <div class="stage">
+        <div class="stage-num">i.</div>
+        <div class="stage-content">
+          <h4>Étape 1</h4>
+          <h3>Le Bénin</h3>
+          <p>14 millions d'habitants. Modernisation et formalisation d'un produit déjà aimé.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">ii.</div>
+        <div class="stage-content">
+          <h4>Étape 2</h4>
+          <h3>L'Afrique de l'Ouest</h3>
+          <p>400 millions d'habitants. Togo, Ghana, Burkina Faso, Niger, Nigeria du Nord — terres du sorgho.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">iii.</div>
+        <div class="stage-content">
+          <h4>Étape 3</h4>
+          <h3>La Diaspora</h3>
+          <p>Ambassadeurs naturels — propagation organique par l'émotion et la fierté.</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="id-block">
-    <div class="id-label">Production hebdo</div>
-    <div class="id-value">1 000 à 2 100 L</div>
-    <div class="id-sub">2-3 brassins · 500-700L/brassin</div>
-  </div>
-  <div class="id-block">
-    <div class="id-label">Délai d'installation</div>
-    <div class="id-value">4 à 6 mois</div>
-    <div class="id-sub">Construction + formation + 1er brassin</div>
+
+  <div class="map-container reveal">
+    <svg class="map-svg" viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stylized West Africa map -->
+      <defs>
+        <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#3A2A18"/>
+          <stop offset="1" stop-color="#1A1208"/>
+        </linearGradient>
+      </defs>
+
+      <!-- West Africa shape (stylized) -->
+      <path d="M 60 180
+               Q 50 140, 80 110
+               Q 130 80, 200 80
+               Q 280 80, 330 110
+               Q 360 140, 360 180
+               Q 365 220, 350 260
+               Q 340 300, 320 330
+               Q 280 360, 240 365
+               Q 200 370, 170 365
+               Q 130 360, 100 340
+               Q 70 310, 60 270
+               Q 55 220, 60 180 Z"
+            fill="url(#mapGrad)" stroke="#C8960C" stroke-width="1" opacity="0.85"/>
+
+      <!-- Country borders (subtle) -->
+      <path d="M 180 100 L 195 200 L 190 280 L 200 340" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
+      <path d="M 220 90 L 230 200 L 225 290" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
+      <path d="M 260 100 L 270 230 L 265 320" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
+      <path d="M 130 130 L 145 200 L 140 280" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
+
+      <!-- Bénin marker (priority) -->
+      <circle cx="215" cy="280" r="14" fill="#E5B520" opacity="0.3"/>
+      <circle cx="215" cy="280" r="9" fill="#E5B520"/>
+      <circle cx="215" cy="280" r="4" fill="#FFFFFF"/>
+      <text x="240" y="285" font-family="Cormorant Garamond, serif" font-size="18" fill="#E5B520" font-style="italic">Bénin</text>
+
+      <!-- Other AOF markers -->
+      <circle cx="180" cy="265" r="5" fill="#C8960C" opacity="0.7"/>
+      <text x="195" y="262" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">TOGO</text>
+
+      <circle cx="155" cy="245" r="5" fill="#C8960C" opacity="0.7"/>
+      <text x="105" y="242" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">GHANA</text>
+
+      <circle cx="180" cy="180" r="5" fill="#C8960C" opacity="0.7"/>
+      <text x="100" y="177" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">BURKINA</text>
+
+      <circle cx="240" cy="170" r="5" fill="#C8960C" opacity="0.7"/>
+      <text x="252" y="167" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">NIGER</text>
+
+      <circle cx="290" cy="240" r="5" fill="#C8960C" opacity="0.7"/>
+      <text x="302" y="237" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">NIGERIA</text>
+
+      <!-- Dotted lines from Benin to others -->
+      <line x1="215" y1="280" x2="180" y2="265" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+      <line x1="215" y1="280" x2="155" y2="245" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+      <line x1="215" y1="280" x2="180" y2="180" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+      <line x1="215" y1="280" x2="240" y2="170" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+      <line x1="215" y1="280" x2="290" y2="240" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+
+      <!-- Caption -->
+      <text x="200" y="420" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="10" fill="#C8960C" letter-spacing="3">AFRIQUE DE L'OUEST · 400M HABITANTS</text>
+    </svg>
   </div>
 </div>
+```
 
-<!-- ══ RÉPLICATION ══════════════════════════════════════════════════ -->
+  </div>
+</section>
 
-<div class="page">
-  <div class="section-label">08 — Scalabilité</div>
-  <div class="section-title">Ce Module est Conçu pour se Répliquer</div>
-  <div class="section-rule"></div>
-  <p style="font-size:15px;color:var(--gris);max-width:680px;line-height:1.8;margin-bottom:30px;">
-    Le même blueprint, la même technologie, un autre terroir, une autre boisson locale. Chaque région du Bénin a sa richesse — TKT a le véhicule pour la valoriser.
-  </p>
+<!-- ══ CHIFFRES ═══════════════════════════════════════════════════════════ -->
 
-  <div class="replication-grid">
-    <div class="rep-card dark">
-      <div class="rep-num">01</div>
-      <div class="rep-label">Module Pilote</div>
-      <div class="rep-title">Natitingou, Atacora<br><span style="color:var(--or);font-size:13px;">TKT Classic — Sorgho Somba</span></div>
+<section class="chiffres">
+  <div class="chiffres-grid">
+    <div class="reveal">
+      <div class="chiffre-num">1000</div>
+      <div class="chiffre-label">Ans de tradition brassicole Somba</div>
     </div>
-    <div class="rep-card">
-      <div class="rep-num">02</div>
-      <div class="rep-label">Réplication Nord</div>
-      <div class="rep-title">Djougou · Parakou · Kandi<br><span style="color:var(--or-dark);font-size:13px;">TKT — Variantes régionales</span></div>
+    <div class="reveal">
+      <div class="chiffre-num">14M</div>
+      <div class="chiffre-label">D'habitants au Bénin — marché initial</div>
     </div>
-    <div class="rep-card">
-      <div class="rep-num">03</div>
-      <div class="rep-label">Nouveau Produit</div>
-      <div class="rep-title">Cotonou · Porto-Novo · Abomey<br><span style="color:var(--or-dark);font-size:13px;">Tchakpalo — Maïs fermenté Sud</span></div>
+    <div class="reveal">
+      <div class="chiffre-num">400M</div>
+      <div class="chiffre-label">D'habitants en Afrique de l'Ouest</div>
     </div>
-    <div class="rep-card">
-      <div class="rep-num">04</div>
-      <div class="rep-label">Expansion Régionale</div>
-      <div class="rep-title">Togo · Ghana · Burkina Faso<br><span style="color:var(--or-dark);font-size:13px;">Boissons traditionnelles locales</span></div>
-    </div>
-    <div class="rep-card dark">
-      <div class="rep-num">05</div>
-      <div class="rep-label">Marché prioritaire</div>
-      <div class="rep-title">Togo · Ghana · Burkina Faso<br><span style="color:var(--or);font-size:13px;">Conquête AOF — 400M habitants</span></div>
-    </div>
-    <div class="rep-card">
-      <div class="rep-num">∞</div>
-      <div class="rep-label">Franchise</div>
-      <div class="rep-title">Ce blueprint entre les mains<br><span style="color:var(--or-dark);font-size:13px;">de tout entrepreneur local</span></div>
+    <div class="reveal">
+      <div class="chiffre-num">100%</div>
+      <div class="chiffre-label">Béninois — propriété, sorgho, savoir-faire</div>
     </div>
   </div>
+</section>
 
-  <div style="margin-top:40px;background:var(--terre-dark);color:var(--blanc);padding:32px 36px;position:relative;overflow:hidden;">
-    <div style="position:absolute;right:30px;top:50%;transform:translateY(-50%);font-size:100px;opacity:0.06;font-family:'Playfair Display',serif;font-weight:900;line-height:1;">TKT</div>
-    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--or);margin-bottom:12px;">Le principe fondamental</div>
-    <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--or-light);line-height:1.5;max-width:600px;">
-      "Un module. Une boisson locale. Une communauté valorisée. Le Bénin d'abord. L'Afrique de l'Ouest ensuite."
+<!-- ══ REJOINDRE ══════════════════════════════════════════════════════════ -->
+
+<section class="rejoindre" id="rejoindre">
+  <div class="rejoindre-content reveal">
+    <div class="section-label">05 — Rejoindre l'aventure</div>
+    <h2>Le projet est <em>en construction</em>.<br>Les bons alliés font les grands projets.</h2>
+    <p>Investisseurs, partenaires, brasseurs, artisans, journalistes, défenseurs du patrimoine — si TKT vous parle, parlons-nous.</p>
+
+```
+<div class="rejoindre-cta-group">
+  <a href="mailto:contact@tkt.bj" class="btn-primary">
+    Nous contacter
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+      <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+  </a>
+  <a href="#histoire" class="btn-secondary">En savoir plus</a>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ══ FOOTER ═════════════════════════════════════════════════════════════ -->
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-brand">TKT</div>
+      <div class="footer-tagline">"La bière qui vient de chez nous"</div>
     </div>
+
+```
+<div class="footer-info">
+  <div class="footer-col">
+    <h5>Origine</h5>
+    <p>Atacora, Bénin</p>
+    <p>Peuple Somba</p>
+    <p>Patrimoine UNESCO</p>
+  </div>
+  <div class="footer-col">
+    <h5>Partenariat</h5>
+    <p>🇧🇯 Bénin</p>
+    <p>🇨🇦 Sherbrooke, Québec</p>
+    <p>Transfert technologique</p>
+  </div>
+  <div class="footer-col">
+    <h5>Contact</h5>
+    <a href="mailto:contact@tkt.bj">contact@tkt.bj</a>
+    <p>Document complet sur demande</p>
   </div>
 </div>
+```
 
-<!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+  </div>
 
-<div class="doc-footer">
-  <div class="footer-brand">TKT</div>
-  <div>Fiche Concept Unité Type — v1.0</div>
-  <div>🇧🇯 Bénin × Québec 🇨🇦</div>
-  <div>Confidentiel — Document de travail</div>
-</div>
+  <div class="footer-bottom">
+    <div>© 2026 — TKT · Tchoukoutou</div>
+    <div>🇧🇯 × 🇨🇦 — Document v2.0</div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav background on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      nav.style.background = 'rgba(15, 8, 5, 0.95)';
+      nav.style.backdropFilter = 'blur(10px)';
+    } else {
+      nav.style.background = 'linear-gradient(to bottom, rgba(15,8,5,0.85) 0%, rgba(15,8,5,0) 100%)';
+      nav.style.backdropFilter = 'none';
+    }
+  });
+</script>
 
 </body>
 </html>
