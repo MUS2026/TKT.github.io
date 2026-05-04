@@ -15,29 +15,27 @@
     --terre: #6B3F1A;
     --terre-deep: #2A1608;
     --terre-mid: #4A2810;
-    --crème: #F5EBD8;
-    --crème-warm: #EFE2C9;
-    --crème-deep: #E5D4B0;
+    --creme: #F5EBD8;
+    --creme-warm: #EFE2C9;
+    --creme-deep: #E5D4B0;
     --noir: #0F0805;
     --rouge-sang: #6B1818;
     --vert-foret: #1F3A1F;
     --beige: #D4B896;
   }
 
-
 - { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
 body {
 font-family: ‘Bricolage Grotesque’, sans-serif;
-background: var(–crème);
+background: var(–creme);
 color: var(–noir);
 line-height: 1.6;
 overflow-x: hidden;
 -webkit-font-smoothing: antialiased;
 }
 
-/* Grain texture overlay */
 body::before {
 content: ‘’;
 position: fixed;
@@ -49,7 +47,6 @@ z-index: 100;
 mix-blend-mode: multiply;
 }
 
-/* ── NAV ─────────────────────────────────────────────────────────────── */
 nav {
 position: fixed;
 top: 0; left: 0; right: 0;
@@ -71,11 +68,7 @@ color: var(–or-bright);
 text-decoration: none;
 }
 
-.nav-links {
-display: flex;
-gap: 32px;
-list-style: none;
-}
+.nav-links { display: flex; gap: 32px; list-style: none; }
 
 .nav-links a {
 font-family: ‘Bricolage Grotesque’, sans-serif;
@@ -83,22 +76,19 @@ font-weight: 400;
 font-size: 13px;
 letter-spacing: 2px;
 text-transform: uppercase;
-color: var(–crème);
+color: var(–creme);
 text-decoration: none;
 transition: color 0.2s;
 }
 
 .nav-links a:hover { color: var(–or-bright); }
 
-@media (max-width: 768px) {
-.nav-links { display: none; }
-}
+@media (max-width: 768px) { .nav-links { display: none; } }
 
-/* ── HERO ────────────────────────────────────────────────────────────── */
 .hero {
 min-height: 100vh;
 background: var(–terre-deep);
-color: var(–crème);
+color: var(–creme);
 position: relative;
 overflow: hidden;
 display: flex;
@@ -116,14 +106,10 @@ radial-gradient(ellipse at 30% 20%, rgba(200,150,12,0.18) 0%, transparent 55%),
 radial-gradient(ellipse at 70% 80%, rgba(107,24,24,0.15) 0%, transparent 60%);
 }
 
-/* Tata silhouettes background */
 .hero-bg {
 position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-width: 100%;
-height: 60%;
+bottom: 0; left: 0; right: 0;
+width: 100%; height: 60%;
 opacity: 0.07;
 pointer-events: none;
 }
@@ -182,7 +168,7 @@ font-family: ‘Cormorant Garamond’, serif;
 font-style: italic;
 font-weight: 400;
 font-size: clamp(18px, 2.5vw, 26px);
-color: var(–crème);
+color: var(–creme);
 line-height: 1.5;
 max-width: 640px;
 margin: 0 auto 60px;
@@ -190,10 +176,7 @@ opacity: 0;
 animation: fadeUp 1.5s 1.1s ease-out forwards;
 }
 
-.hero-tagline em {
-color: var(–or-bright);
-font-weight: 500;
-}
+.hero-tagline em { color: var(–or-bright); font-weight: 500; }
 
 .hero-cta {
 display: inline-flex;
@@ -214,12 +197,7 @@ opacity: 0;
 animation: fadeUp 1.5s 1.4s ease-out forwards;
 }
 
-.hero-cta:hover {
-background: var(–or);
-color: var(–terre-deep);
-transform: translateY(-2px);
-}
-
+.hero-cta:hover { background: var(–or); color: var(–terre-deep); transform: translateY(-2px); }
 .hero-cta svg { transition: transform 0.3s; }
 .hero-cta:hover svg { transform: translateX(4px); }
 
@@ -241,16 +219,8 @@ animation: fadeUp 1.5s 1.7s ease-out forwards, bounce 2s 2.5s infinite;
 50% { transform: translateX(-50%) translateY(8px); }
 }
 
-/* ── SECTION DEFAULTS ────────────────────────────────────────────────── */
-section {
-padding: 120px 40px;
-position: relative;
-}
-
-.container {
-max-width: 1200px;
-margin: 0 auto;
-}
+section { padding: 120px 40px; position: relative; }
+.container { max-width: 1200px; margin: 0 auto; }
 
 .section-label {
 font-family: ‘Bricolage Grotesque’, sans-serif;
@@ -272,535 +242,98 @@ color: var(–terre-deep);
 margin-bottom: 32px;
 }
 
-.section-title em {
-font-style: italic;
-color: var(–or-deep);
-font-family: ‘Cormorant Infant’, serif;
-}
+.section-title em { font-style: italic; color: var(–or-deep); font-family: ‘Cormorant Infant’, serif; }
 
-/* ── HISTOIRE ────────────────────────────────────────────────────────── */
-.histoire {
-background: var(–crème);
-padding-top: 160px;
-padding-bottom: 160px;
-}
+.histoire { background: var(–creme); padding-top: 160px; padding-bottom: 160px; }
 
-.histoire-grid {
-display: grid;
-grid-template-columns: 1fr 1.2fr;
-gap: 80px;
-align-items: start;
-}
+.histoire-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
 
-@media (max-width: 900px) {
-.histoire-grid { grid-template-columns: 1fr; gap: 40px; }
-}
+@media (max-width: 900px) { .histoire-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-.histoire-text p {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 20px;
-line-height: 1.75;
-color: var(–terre-mid);
-margin-bottom: 24px;
-}
+.histoire-text p { font-family: ‘Cormorant Garamond’, serif; font-size: 20px; line-height: 1.75; color: var(–terre-mid); margin-bottom: 24px; }
+.histoire-text p.intro { font-size: 26px; font-style: italic; color: var(–terre-deep); margin-bottom: 36px; line-height: 1.5; }
+.histoire-text strong { color: var(–or-deep); font-weight: 600; font-style: normal; }
 
-.histoire-text p.intro {
-font-size: 26px;
-font-style: italic;
-color: var(–terre-deep);
-margin-bottom: 36px;
-line-height: 1.5;
-}
+.histoire-image { position: relative; aspect-ratio: 4/5; background: var(–terre-mid); overflow: hidden; box-shadow: 0 30px 60px rgba(74,40,16,0.25); }
+.tata-illustration { width: 100%; height: 100%; display: block; }
 
-.histoire-text strong {
-color: var(–or-deep);
-font-weight: 600;
-font-style: normal;
-}
+.histoire-image-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 28px; background: linear-gradient(to top, rgba(15,8,5,0.9), transparent); color: var(–creme); }
+.histoire-image-caption .label { font-family: ‘Bricolage Grotesque’, sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(–or-bright); margin-bottom: 4px; }
+.histoire-image-caption .title { font-family: ‘Cormorant Garamond’, serif; font-style: italic; font-size: 20px; }
 
-.histoire-image {
-position: relative;
-aspect-ratio: 4/5;
-background: var(–terre-mid);
-overflow: hidden;
-box-shadow: 0 30px 60px rgba(74,40,16,0.25);
-}
-
-/* SVG Tata illustration */
-.tata-illustration {
-width: 100%;
-height: 100%;
-display: block;
-}
-
-.histoire-image-caption {
-position: absolute;
-bottom: 0; left: 0; right: 0;
-padding: 24px 28px;
-background: linear-gradient(to top, rgba(15,8,5,0.9), transparent);
-color: var(–crème);
-}
-
-.histoire-image-caption .label {
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-size: 10px;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(–or-bright);
-margin-bottom: 4px;
-}
-
-.histoire-image-caption .title {
-font-family: ‘Cormorant Garamond’, serif;
-font-style: italic;
-font-size: 20px;
-}
-
-/* ── MANIFESTE ───────────────────────────────────────────────────────── */
-.manifeste {
-background: var(–terre-deep);
-color: var(–crème);
-text-align: center;
-padding-top: 180px;
-padding-bottom: 180px;
-position: relative;
-overflow: hidden;
-}
-
-.manifeste::before {
-content: ‘’;
-position: absolute;
-inset: 0;
-background:
-radial-gradient(ellipse at 50% 50%, rgba(200,150,12,0.1) 0%, transparent 70%);
-}
-
+.manifeste { background: var(–terre-deep); color: var(–creme); text-align: center; padding-top: 180px; padding-bottom: 180px; position: relative; overflow: hidden; }
+.manifeste::before { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(200,150,12,0.1) 0%, transparent 70%); }
 .manifeste .section-label { color: var(–or-bright); }
-.manifeste .section-title { color: var(–crème); }
+.manifeste .section-title { color: var(–creme); }
 
-.manifeste-quote {
-font-family: ‘Cormorant Garamond’, serif;
-font-style: italic;
-font-weight: 400;
-font-size: clamp(32px, 5vw, 56px);
-line-height: 1.3;
-color: var(–crème);
-max-width: 900px;
-margin: 60px auto;
-position: relative;
-z-index: 2;
-}
+.manifeste-quote { font-family: ‘Cormorant Garamond’, serif; font-style: italic; font-weight: 400; font-size: clamp(32px, 5vw, 56px); line-height: 1.3; color: var(–creme); max-width: 900px; margin: 60px auto; position: relative; z-index: 2; }
+.manifeste-quote span { color: var(–or-bright); font-weight: 500; }
+.manifeste-signature { font-family: ‘Bricolage Grotesque’, sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(–or); margin-top: 40px; position: relative; z-index: 2; }
 
-.manifeste-quote span {
-color: var(–or-bright);
-font-weight: 500;
-}
+.piliers { background: var(–creme-warm); padding-top: 160px; padding-bottom: 160px; }
+.piliers-header { text-align: center; max-width: 700px; margin: 0 auto 100px; }
+.piliers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; }
+@media (max-width: 900px) { .piliers-grid { grid-template-columns: 1fr; gap: 50px; } }
+.pilier { text-align: center; position: relative; }
+.pilier-num { font-family: ‘Cormorant Garamond’, serif; font-weight: 300; font-size: 90px; line-height: 1; color: var(–or-bright); opacity: 0.4; margin-bottom: 16px; }
+.pilier-title { font-family: ‘Cormorant Garamond’, serif; font-weight: 500; font-size: 28px; color: var(–terre-deep); margin-bottom: 20px; }
+.pilier-text { font-family: ‘Bricolage Grotesque’, sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7; color: var(–terre-mid); }
 
-.manifeste-signature {
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-size: 12px;
-letter-spacing: 4px;
-text-transform: uppercase;
-color: var(–or);
-margin-top: 40px;
-position: relative;
-z-index: 2;
-}
-
-/* ── PILIERS (3 columns) ─────────────────────────────────────────────── */
-.piliers {
-background: var(–crème-warm);
-padding-top: 160px;
-padding-bottom: 160px;
-}
-
-.piliers-header {
-text-align: center;
-max-width: 700px;
-margin: 0 auto 100px;
-}
-
-.piliers-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 60px;
-}
-
-@media (max-width: 900px) {
-.piliers-grid { grid-template-columns: 1fr; gap: 50px; }
-}
-
-.pilier {
-text-align: center;
-position: relative;
-}
-
-.pilier-num {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-font-size: 90px;
-line-height: 1;
-color: var(–or-bright);
-opacity: 0.4;
-margin-bottom: 16px;
-}
-
-.pilier-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 500;
-font-size: 28px;
-color: var(–terre-deep);
-margin-bottom: 20px;
-}
-
-.pilier-text {
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-weight: 300;
-font-size: 16px;
-line-height: 1.7;
-color: var(–terre-mid);
-}
-
-/* ── VISION (with map) ───────────────────────────────────────────────── */
-.vision {
-background: var(–noir);
-color: var(–crème);
-padding-top: 160px;
-padding-bottom: 160px;
-position: relative;
-overflow: hidden;
-}
-
+.vision { background: var(–noir); color: var(–creme); padding-top: 160px; padding-bottom: 160px; position: relative; overflow: hidden; }
 .vision .section-label { color: var(–or-bright); }
-.vision .section-title { color: var(–crème); }
-
-.vision-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-align-items: center;
-}
-
-@media (max-width: 900px) {
-.vision-grid { grid-template-columns: 1fr; gap: 60px; }
-}
-
-.vision-text p {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 22px;
-line-height: 1.6;
-color: var(–crème-warm);
-margin-bottom: 28px;
-}
-
-.vision-text p strong {
-color: var(–or-bright);
-font-weight: 500;
-}
-
-.vision-stages {
-margin-top: 40px;
-}
-
-.stage {
-display: flex;
-gap: 24px;
-padding: 24px 0;
-border-bottom: 1px solid rgba(200,150,12,0.2);
-}
-
+.vision .section-title { color: var(–creme); }
+.vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+@media (max-width: 900px) { .vision-grid { grid-template-columns: 1fr; gap: 60px; } }
+.vision-text p { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; line-height: 1.6; color: var(–creme-warm); margin-bottom: 28px; }
+.vision-text p strong { color: var(–or-bright); font-weight: 500; }
+.vision-stages { margin-top: 40px; }
+.stage { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid rgba(200,150,12,0.2); }
 .stage:last-child { border-bottom: none; }
+.stage-num { font-family: ‘Cormorant Garamond’, serif; font-style: italic; font-size: 36px; color: var(–or-bright); line-height: 1; flex-shrink: 0; width: 50px; }
+.stage-content h4 { font-family: ‘Bricolage Grotesque’, sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(–or); margin-bottom: 8px; }
+.stage-content h3 { font-family: ‘Cormorant Garamond’, serif; font-weight: 500; font-size: 26px; color: var(–creme); margin-bottom: 8px; }
+.stage-content p { font-family: ‘Bricolage Grotesque’, sans-serif; font-weight: 300; font-size: 14px; color: var(–beige); margin: 0; line-height: 1.6; }
+.map-container { position: relative; aspect-ratio: 1/1.1; }
+.map-svg { width: 100%; height: 100%; }
 
-.stage-num {
-font-family: ‘Cormorant Garamond’, serif;
-font-style: italic;
-font-size: 36px;
-color: var(–or-bright);
-line-height: 1;
-flex-shrink: 0;
-width: 50px;
-}
+.chiffres { background: var(–rouge-sang); color: var(–creme); padding: 100px 40px; }
+.chiffres-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+@media (max-width: 768px) { .chiffres-grid { grid-template-columns: repeat(2, 1fr); gap: 50px; } }
+.chiffre-num { font-family: ‘Cormorant Garamond’, serif; font-weight: 400; font-size: clamp(48px, 6vw, 72px); line-height: 1; color: var(–or-bright); margin-bottom: 12px; }
+.chiffre-label { font-family: ‘Bricolage Grotesque’, sans-serif; font-weight: 300; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(–creme); line-height: 1.5; }
 
-.stage-content h4 {
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-weight: 500;
-font-size: 11px;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(–or);
-margin-bottom: 8px;
-}
-
-.stage-content h3 {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 500;
-font-size: 26px;
-color: var(–crème);
-margin-bottom: 8px;
-}
-
-.stage-content p {
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-weight: 300;
-font-size: 14px;
-color: var(–beige);
-margin: 0;
-line-height: 1.6;
-}
-
-/* Africa map SVG container */
-.map-container {
-position: relative;
-aspect-ratio: 1/1.1;
-}
-
-.map-svg {
-width: 100%;
-height: 100%;
-}
-
-/* ── CHIFFRES ────────────────────────────────────────────────────────── */
-.chiffres {
-background: var(–rouge-sang);
-color: var(–crème);
-padding: 100px 40px;
-}
-
-.chiffres-grid {
-max-width: 1200px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 40px;
-text-align: center;
-}
-
-@media (max-width: 768px) {
-.chiffres-grid { grid-template-columns: repeat(2, 1fr); gap: 50px; }
-}
-
-.chiffre-num {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 400;
-font-size: clamp(48px, 6vw, 72px);
-line-height: 1;
-color: var(–or-bright);
-margin-bottom: 12px;
-}
-
-.chiffre-label {
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-weight: 300;
-font-size: 13px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: var(–crème);
-line-height: 1.5;
-}
-
-/* ── REJOINDRE ───────────────────────────────────────────────────────── */
-.rejoindre {
-background: var(–crème);
-text-align: center;
-padding: 180px 40px;
-position: relative;
-overflow: hidden;
-}
-
-.rejoindre::before {
-content: ‘TKT’;
-position: absolute;
-bottom: -20px;
-left: 50%;
-transform: translateX(-50%);
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 700;
-font-size: 380px;
-color: var(–or-bright);
-opacity: 0.06;
-line-height: 0.8;
-pointer-events: none;
-letter-spacing: -10px;
-}
-
+.rejoindre { background: var(–creme); text-align: center; padding: 180px 40px; position: relative; overflow: hidden; }
+.rejoindre::before { content: ‘TKT’; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-family: ‘Cormorant Garamond’, serif; font-weight: 700; font-size: 380px; color: var(–or-bright); opacity: 0.06; line-height: 0.8; pointer-events: none; letter-spacing: -10px; }
 .rejoindre-content { position: relative; z-index: 2; }
+.rejoindre h2 { font-family: ‘Cormorant Garamond’, serif; font-weight: 500; font-size: clamp(48px, 7vw, 88px); line-height: 1.05; color: var(–terre-deep); margin-bottom: 32px; letter-spacing: -2px; }
+.rejoindre h2 em { font-style: italic; color: var(–or-deep); font-family: ‘Cormorant Infant’, serif; }
+.rejoindre p { font-family: ‘Cormorant Garamond’, serif; font-style: italic; font-size: clamp(18px, 2.2vw, 24px); color: var(–terre-mid); max-width: 600px; margin: 0 auto 50px; line-height: 1.6; }
+.rejoindre-cta-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
 
-.rejoindre h2 {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 500;
-font-size: clamp(48px, 7vw, 88px);
-line-height: 1.05;
-color: var(–terre-deep);
-margin-bottom: 32px;
-letter-spacing: -2px;
-}
+.btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 12px; padding: 20px 38px; font-family: ‘Bricolage Grotesque’, sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; }
+.btn-primary { background: var(–terre-deep); color: var(–or-bright); border: 1px solid var(–terre-deep); }
+.btn-primary:hover { background: var(–or-deep); color: var(–creme); border-color: var(–or-deep); transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: var(–terre-deep); border: 1px solid var(–terre-deep); }
+.btn-secondary:hover { background: var(–terre-deep); color: var(–creme); transform: translateY(-2px); }
 
-.rejoindre h2 em {
-font-style: italic;
-color: var(–or-deep);
-font-family: ‘Cormorant Infant’, serif;
-}
-
-.rejoindre p {
-font-family: ‘Cormorant Garamond’, serif;
-font-style: italic;
-font-size: clamp(18px, 2.2vw, 24px);
-color: var(–terre-mid);
-max-width: 600px;
-margin: 0 auto 50px;
-line-height: 1.6;
-}
-
-.rejoindre-cta-group {
-display: flex;
-gap: 20px;
-justify-content: center;
-flex-wrap: wrap;
-}
-
-.btn-primary, .btn-secondary {
-display: inline-flex;
-align-items: center;
-gap: 12px;
-padding: 20px 38px;
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-weight: 500;
-font-size: 13px;
-letter-spacing: 3px;
-text-transform: uppercase;
-text-decoration: none;
-transition: all 0.3s;
-cursor: pointer;
-border: none;
-}
-
-.btn-primary {
-background: var(–terre-deep);
-color: var(–or-bright);
-border: 1px solid var(–terre-deep);
-}
-
-.btn-primary:hover {
-background: var(–or-deep);
-color: var(–crème);
-border-color: var(–or-deep);
-transform: translateY(-2px);
-}
-
-.btn-secondary {
-background: transparent;
-color: var(–terre-deep);
-border: 1px solid var(–terre-deep);
-}
-
-.btn-secondary:hover {
-background: var(–terre-deep);
-color: var(–crème);
-transform: translateY(-2px);
-}
-
-/* ── FOOTER ──────────────────────────────────────────────────────────── */
-footer {
-background: var(–terre-deep);
-color: var(–beige);
-padding: 60px 40px 40px;
-}
-
-.footer-content {
-max-width: 1200px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: 1fr 2fr;
-gap: 60px;
-margin-bottom: 50px;
-}
-
-@media (max-width: 768px) {
-.footer-content { grid-template-columns: 1fr; }
-}
-
-.footer-brand {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 700;
-font-size: 56px;
-color: var(–or-bright);
-line-height: 1;
-margin-bottom: 12px;
-letter-spacing: -1px;
-}
-
-.footer-tagline {
-font-family: ‘Cormorant Infant’, serif;
-font-style: italic;
-color: var(–beige);
-font-size: 16px;
-}
-
-.footer-info {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 30px;
-}
-
-@media (max-width: 600px) {
-.footer-info { grid-template-columns: 1fr; gap: 24px; }
-}
-
-.footer-col h5 {
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-weight: 600;
-font-size: 11px;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(–or);
-margin-bottom: 16px;
-}
-
-.footer-col p, .footer-col a {
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-weight: 300;
-font-size: 14px;
-color: var(–beige);
-line-height: 1.7;
-text-decoration: none;
-display: block;
-}
-
+footer { background: var(–terre-deep); color: var(–beige); padding: 60px 40px 40px; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 60px; margin-bottom: 50px; }
+@media (max-width: 768px) { .footer-content { grid-template-columns: 1fr; } }
+.footer-brand { font-family: ‘Cormorant Garamond’, serif; font-weight: 700; font-size: 56px; color: var(–or-bright); line-height: 1; margin-bottom: 12px; letter-spacing: -1px; }
+.footer-tagline { font-family: ‘Cormorant Infant’, serif; font-style: italic; color: var(–beige); font-size: 16px; }
+.footer-info { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; }
+@media (max-width: 600px) { .footer-info { grid-template-columns: 1fr; gap: 24px; } }
+.footer-col h5 { font-family: ‘Bricolage Grotesque’, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(–or); margin-bottom: 16px; }
+.footer-col p, .footer-col a { font-family: ‘Bricolage Grotesque’, sans-serif; font-weight: 300; font-size: 14px; color: var(–beige); line-height: 1.7; text-decoration: none; display: block; }
 .footer-col a:hover { color: var(–or-bright); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(200,150,12,0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; font-family: ‘Bricolage Grotesque’, sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(212,184,150,0.5); }
 
-.footer-bottom {
-max-width: 1200px;
-margin: 0 auto;
-padding-top: 30px;
-border-top: 1px solid rgba(200,150,12,0.15);
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap;
-gap: 20px;
-font-family: ‘Bricolage Grotesque’, sans-serif;
-font-size: 11px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: rgba(212,184,150,0.5);
-}
-
-/* ── REVEAL ON SCROLL ───────────────────────────────────────────────── */
-.reveal {
-opacity: 0;
-transform: translateY(30px);
-transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-}
-
-.reveal.visible {
-opacity: 1;
-transform: translateY(0);
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s ease-out, transform 0.9s ease-out; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 
 </head>
 <body>
-
-<!-- ══ NAV ════════════════════════════════════════════════════════════════ -->
 
 <nav>
   <a href="#" class="nav-logo">TKT</a>
@@ -811,42 +344,26 @@ transform: translateY(0);
   </ul>
 </nav>
 
-<!-- ══ HERO ═══════════════════════════════════════════════════════════════ -->
-
 <section class="hero">
-  <!-- Tata silhouettes background -->
   <svg class="hero-bg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-    <!-- Multiple tata silhouettes -->
     <g fill="#C8960C">
-      <!-- Tata 1 -->
       <path d="M 100 600 L 100 380 L 130 380 L 130 280 Q 130 250 160 250 Q 190 250 190 280 L 190 380 L 250 380 L 250 250 Q 250 220 290 220 Q 330 220 330 250 L 330 380 L 390 380 L 390 280 Q 390 250 420 250 Q 450 250 450 280 L 450 380 L 480 380 L 480 600 Z"/>
-      <!-- Tata 2 -->
       <path d="M 600 600 L 600 400 L 625 400 L 625 310 Q 625 285 650 285 Q 675 285 675 310 L 675 400 L 720 400 L 720 290 Q 720 265 752 265 Q 784 265 784 290 L 784 400 L 829 400 L 829 310 Q 829 285 854 285 Q 879 285 879 310 L 879 400 L 904 400 L 904 600 Z"/>
-      <!-- Tata 3 -->
       <path d="M 1080 600 L 1080 360 L 1110 360 L 1110 260 Q 1110 230 1140 230 Q 1170 230 1170 260 L 1170 360 L 1230 360 L 1230 230 Q 1230 200 1270 200 Q 1310 200 1310 230 L 1310 360 L 1370 360 L 1370 260 Q 1370 230 1400 230 Q 1430 230 1430 260 L 1430 360 L 1460 360 L 1460 600 Z"/>
     </g>
   </svg>
-
   <div class="hero-content">
     <div class="hero-eyebrow">🇧🇯  Bénin × Québec  🇨🇦</div>
     <h1 class="hero-title">TKT</h1>
     <div class="hero-subtitle">TCHOUKOUTOU</div>
-    <p class="hero-tagline">
-      La <em>bière ancestrale</em> des femmes Somba<br>
-      du nord Bénin, brassée pour <em>aujourd'hui</em>.
-    </p>
+    <p class="hero-tagline">La <em>bière ancestrale</em> des femmes Somba<br>du nord Bénin, brassée pour <em>aujourd'hui</em>.</p>
     <a href="#histoire" class="hero-cta">
       Découvrir le projet
-      <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-        <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" stroke-width="1.5"/>
-      </svg>
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" stroke-width="1.5"/></svg>
     </a>
   </div>
-
   <div class="scroll-indicator">↓ &nbsp; faire défiler</div>
 </section>
-
-<!-- ══ HISTOIRE ═══════════════════════════════════════════════════════════ -->
 
 <section class="histoire" id="histoire">
   <div class="container">
@@ -854,95 +371,62 @@ transform: translateY(0);
       <div class="histoire-text reveal">
         <div class="section-label">01 — L'origine</div>
         <h2 class="section-title">Une <em>bière millénaire</em>, brassée par les femmes du peuple Somba</h2>
-
-```
-    <p class="intro">Le tchoukoutou n'est pas une nouveauté. Il est brassé depuis des siècles dans les villages du nord Bénin — par les <strong>tchoukoutières</strong>, ces femmes gardiennes d'un savoir transmis de mère en fille.</p>
-
-    <p>Une bière de <strong>sorgho rouge</strong>, fermentée naturellement, servie dans la calebasse, vivante et acidulée. Elle accompagne les naissances, les funérailles, les marchés, les retrouvailles. Elle est la bière sociale de toute une région.</p>
-
-    <p>Mais elle se conserve à peine 48 heures. Elle reste informelle, fragile, menacée par les bières industrielles importées. <strong>TKT vient changer cela.</strong></p>
-  </div>
-
-  <div class="histoire-image reveal">
-    <!-- SVG tata illustration -->
-    <svg class="tata-illustration" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#D4A04C"/>
-          <stop offset="0.6" stop-color="#A0552A"/>
-          <stop offset="1" stop-color="#5C2A10"/>
-        </linearGradient>
-        <linearGradient id="tataGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#8B5A2B"/>
-          <stop offset="1" stop-color="#4A2810"/>
-        </linearGradient>
-      </defs>
-      <!-- Sky -->
-      <rect width="400" height="500" fill="url(#skyGrad)"/>
-      <!-- Sun -->
-      <circle cx="320" cy="120" r="50" fill="#F5C870" opacity="0.6"/>
-      <circle cx="320" cy="120" r="35" fill="#F5C870" opacity="0.8"/>
-      <!-- Mountains -->
-      <path d="M 0 380 L 80 280 L 160 340 L 240 240 L 320 320 L 400 260 L 400 500 L 0 500 Z" fill="#3A1810" opacity="0.8"/>
-      <path d="M 0 420 L 100 360 L 200 400 L 300 350 L 400 380 L 400 500 L 0 500 Z" fill="#2A1208" opacity="0.9"/>
-      <!-- Tata main structure -->
-      <rect x="80" y="340" width="240" height="120" fill="url(#tataGrad)"/>
-      <!-- Towers -->
-      <rect x="60" y="240" width="70" height="220" rx="35" fill="url(#tataGrad)"/>
-      <rect x="270" y="240" width="70" height="220" rx="35" fill="url(#tataGrad)"/>
-      <rect x="165" y="200" width="70" height="260" rx="35" fill="url(#tataGrad)"/>
-      <!-- Granaries on top -->
-      <ellipse cx="95" cy="240" rx="40" ry="14" fill="#A06030"/>
-      <ellipse cx="200" cy="200" rx="40" ry="14" fill="#A06030"/>
-      <ellipse cx="305" cy="240" rx="40" ry="14" fill="#A06030"/>
-      <!-- Conical roofs -->
-      <path d="M 65 240 Q 95 215 125 240 Z" fill="#C08050"/>
-      <path d="M 170 200 Q 200 170 230 200 Z" fill="#C08050"/>
-      <path d="M 275 240 Q 305 215 335 240 Z" fill="#C08050"/>
-      <!-- Door -->
-      <rect x="180" y="410" width="40" height="50" rx="20" fill="#1A0805"/>
-      <!-- Windows -->
-      <rect x="85" y="320" width="14" height="20" rx="2" fill="#1A0805"/>
-      <rect x="295" y="320" width="14" height="20" rx="2" fill="#1A0805"/>
-      <!-- Wall texture lines -->
-      <line x1="80" y1="380" x2="320" y2="380" stroke="#3A1810" stroke-width="1" opacity="0.5"/>
-      <line x1="80" y1="420" x2="320" y2="420" stroke="#3A1810" stroke-width="1" opacity="0.5"/>
-      <!-- Person silhouette (tchoukoutière with calebasse) -->
-      <ellipse cx="370" cy="475" rx="12" ry="3" fill="#1A0805" opacity="0.4"/>
-      <path d="M 365 475 L 365 445 Q 365 435 372 435 Q 379 435 379 445 L 379 475 Z" fill="#2A1208"/>
-      <circle cx="372" cy="430" r="6" fill="#2A1208"/>
-      <ellipse cx="372" cy="425" rx="8" ry="3" fill="#A06030"/>
-      <!-- Ground -->
-      <rect y="475" width="400" height="25" fill="#2A1208"/>
-    </svg>
-
-    <div class="histoire-image-caption">
-      <div class="label">Tata Somba — Atacora, Bénin</div>
-      <div class="title">Patrimoine UNESCO depuis 2004</div>
+        <p class="intro">Le tchoukoutou n'est pas une nouveauté. Il est brassé depuis des siècles dans les villages du nord Bénin — par les <strong>tchoukoutières</strong>, ces femmes gardiennes d'un savoir transmis de mère en fille.</p>
+        <p>Une bière de <strong>sorgho rouge</strong>, fermentée naturellement, servie dans la calebasse, vivante et acidulée. Elle accompagne les naissances, les funérailles, les marchés, les retrouvailles.</p>
+        <p>Mais elle se conserve à peine 48 heures. Elle reste informelle, fragile, menacée par les bières industrielles importées. <strong>TKT vient changer cela.</strong></p>
+      </div>
+      <div class="histoire-image reveal">
+        <svg class="tata-illustration" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#D4A04C"/><stop offset="0.6" stop-color="#A0552A"/><stop offset="1" stop-color="#5C2A10"/>
+            </linearGradient>
+            <linearGradient id="tataGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8B5A2B"/><stop offset="1" stop-color="#4A2810"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="500" fill="url(#skyGrad)"/>
+          <circle cx="320" cy="120" r="50" fill="#F5C870" opacity="0.6"/>
+          <circle cx="320" cy="120" r="35" fill="#F5C870" opacity="0.8"/>
+          <path d="M 0 380 L 80 280 L 160 340 L 240 240 L 320 320 L 400 260 L 400 500 L 0 500 Z" fill="#3A1810" opacity="0.8"/>
+          <path d="M 0 420 L 100 360 L 200 400 L 300 350 L 400 380 L 400 500 L 0 500 Z" fill="#2A1208" opacity="0.9"/>
+          <rect x="80" y="340" width="240" height="120" fill="url(#tataGrad)"/>
+          <rect x="60" y="240" width="70" height="220" rx="35" fill="url(#tataGrad)"/>
+          <rect x="270" y="240" width="70" height="220" rx="35" fill="url(#tataGrad)"/>
+          <rect x="165" y="200" width="70" height="260" rx="35" fill="url(#tataGrad)"/>
+          <ellipse cx="95" cy="240" rx="40" ry="14" fill="#A06030"/>
+          <ellipse cx="200" cy="200" rx="40" ry="14" fill="#A06030"/>
+          <ellipse cx="305" cy="240" rx="40" ry="14" fill="#A06030"/>
+          <path d="M 65 240 Q 95 215 125 240 Z" fill="#C08050"/>
+          <path d="M 170 200 Q 200 170 230 200 Z" fill="#C08050"/>
+          <path d="M 275 240 Q 305 215 335 240 Z" fill="#C08050"/>
+          <rect x="180" y="410" width="40" height="50" rx="20" fill="#1A0805"/>
+          <rect x="85" y="320" width="14" height="20" rx="2" fill="#1A0805"/>
+          <rect x="295" y="320" width="14" height="20" rx="2" fill="#1A0805"/>
+          <line x1="80" y1="380" x2="320" y2="380" stroke="#3A1810" stroke-width="1" opacity="0.5"/>
+          <line x1="80" y1="420" x2="320" y2="420" stroke="#3A1810" stroke-width="1" opacity="0.5"/>
+          <path d="M 365 475 L 365 445 Q 365 435 372 435 Q 379 435 379 445 L 379 475 Z" fill="#2A1208"/>
+          <circle cx="372" cy="430" r="6" fill="#2A1208"/>
+          <ellipse cx="372" cy="425" rx="8" ry="3" fill="#A06030"/>
+          <rect y="475" width="400" height="25" fill="#2A1208"/>
+        </svg>
+        <div class="histoire-image-caption">
+          <div class="label">Tata Somba — Atacora, Bénin</div>
+          <div class="title">Patrimoine UNESCO depuis 2004</div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-```
-
-  </div>
 </section>
-
-<!-- ══ MANIFESTE ══════════════════════════════════════════════════════════ -->
 
 <section class="manifeste">
   <div class="container reveal">
     <div class="section-label">02 — Le manifeste</div>
     <h2 class="section-title">Notre conviction</h2>
-    <p class="manifeste-quote">
-      « Nous ne créons pas une nouvelle bière.<br>
-      Nous <span>réveillons</span> celle que nos grands-mères<br>
-      brassent depuis <span>mille ans</span>. »
-    </p>
+    <p class="manifeste-quote">« Nous ne créons pas une nouvelle bière.<br>Nous <span>réveillons</span> celle que nos grands-mères<br>brassent depuis <span>mille ans</span>. »</p>
     <div class="manifeste-signature">— L'équipe TKT</div>
   </div>
 </section>
-
-<!-- ══ PILIERS ════════════════════════════════════════════════════════════ -->
 
 <section class="piliers">
   <div class="container">
@@ -950,33 +434,25 @@ transform: translateY(0);
       <div class="section-label">03 — Trois piliers</div>
       <h2 class="section-title">Ce qui rend TKT <em>unique</em></h2>
     </div>
-
-```
-<div class="piliers-grid">
-  <div class="pilier reveal">
-    <div class="pilier-num">01</div>
-    <h3 class="pilier-title">Les Tchoukoutières</h3>
-    <p class="pilier-text">Co-productrices et garantes de l'authenticité. Leur savoir ancestral est le cœur de la recette TKT — pas un décor folklorique, mais un héritage rémunéré et reconnu.</p>
-  </div>
-
-  <div class="pilier reveal">
-    <div class="pilier-num">02</div>
-    <h3 class="pilier-title">La Tata Brasserie</h3>
-    <p class="pilier-text">Chaque établissement TKT est une forteresse en banco — architecture Somba traditionnelle UNESCO — abritant une microbrasserie moderne. L'extérieur raconte 1000 ans. L'intérieur brasse demain.</p>
-  </div>
-
-  <div class="pilier reveal">
-    <div class="pilier-num">03</div>
-    <h3 class="pilier-title">Le Sorgho Local</h3>
-    <p class="pilier-text">100% béninois. Cultivé dans l'Atacora par des paysans en contrat direct. Chaque litre vendu enrichit le nord Bénin — pas une multinationale étrangère.</p>
-  </div>
-</div>
-```
-
+    <div class="piliers-grid">
+      <div class="pilier reveal">
+        <div class="pilier-num">01</div>
+        <h3 class="pilier-title">Les Tchoukoutières</h3>
+        <p class="pilier-text">Co-productrices et garantes de l'authenticité. Leur savoir ancestral est le cœur de la recette TKT — pas un décor folklorique, mais un héritage rémunéré et reconnu.</p>
+      </div>
+      <div class="pilier reveal">
+        <div class="pilier-num">02</div>
+        <h3 class="pilier-title">La Tata Brasserie</h3>
+        <p class="pilier-text">Chaque établissement TKT est une forteresse en banco — architecture Somba traditionnelle UNESCO — abritant une microbrasserie moderne. L'extérieur raconte 1000 ans. L'intérieur brasse demain.</p>
+      </div>
+      <div class="pilier reveal">
+        <div class="pilier-num">03</div>
+        <h3 class="pilier-title">Le Sorgho Local</h3>
+        <p class="pilier-text">100% béninois. Cultivé dans l'Atacora par des paysans en contrat direct. Chaque litre vendu enrichit le nord Bénin — pas une multinationale étrangère.</p>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- ══ VISION ═════════════════════════════════════════════════════════════ -->
 
 <section class="vision" id="vision">
   <div class="container">
@@ -985,154 +461,83 @@ transform: translateY(0);
         <div class="section-label">04 — La vision</div>
         <h2 class="section-title">Conquérir le marché de <em>l'intérieur</em></h2>
         <p>Pendant que les multinationales étrangères vendent leur bière standardisée aux Béninois, <strong>TKT modernise et diffuse leur propre patrimoine.</strong></p>
-        <p>Le combat ne se joue pas sur le prix. Il se joue sur l'identité, la fierté, l'appartenance — un terrain où aucun géant industriel ne peut nous suivre.</p>
-
-```
-    <div class="vision-stages">
-      <div class="stage">
-        <div class="stage-num">i.</div>
-        <div class="stage-content">
-          <h4>Étape 1</h4>
-          <h3>Le Bénin</h3>
-          <p>14 millions d'habitants. Modernisation et formalisation d'un produit déjà aimé.</p>
+        <p>Le combat se joue sur l'identité, la fierté, l'appartenance — un terrain où aucun géant industriel ne peut nous suivre.</p>
+        <div class="vision-stages">
+          <div class="stage">
+            <div class="stage-num">i.</div>
+            <div class="stage-content"><h4>Étape 1</h4><h3>Le Bénin</h3><p>14 millions d'habitants. Modernisation d'un produit déjà aimé.</p></div>
+          </div>
+          <div class="stage">
+            <div class="stage-num">ii.</div>
+            <div class="stage-content"><h4>Étape 2</h4><h3>L'Afrique de l'Ouest</h3><p>400 millions d'habitants. Togo, Ghana, Burkina Faso, Niger, Nigeria du Nord.</p></div>
+          </div>
+          <div class="stage">
+            <div class="stage-num">iii.</div>
+            <div class="stage-content"><h4>Étape 3</h4><h3>La Diaspora</h3><p>Ambassadeurs naturels — propagation organique par l'émotion et la fierté.</p></div>
+          </div>
         </div>
       </div>
-      <div class="stage">
-        <div class="stage-num">ii.</div>
-        <div class="stage-content">
-          <h4>Étape 2</h4>
-          <h3>L'Afrique de l'Ouest</h3>
-          <p>400 millions d'habitants. Togo, Ghana, Burkina Faso, Niger, Nigeria du Nord — terres du sorgho.</p>
-        </div>
-      </div>
-      <div class="stage">
-        <div class="stage-num">iii.</div>
-        <div class="stage-content">
-          <h4>Étape 3</h4>
-          <h3>La Diaspora</h3>
-          <p>Ambassadeurs naturels — propagation organique par l'émotion et la fierté.</p>
-        </div>
+      <div class="map-container reveal">
+        <svg class="map-svg" viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3A2A18"/><stop offset="1" stop-color="#1A1208"/>
+            </linearGradient>
+          </defs>
+          <path d="M 60 180 Q 50 140, 80 110 Q 130 80, 200 80 Q 280 80, 330 110 Q 360 140, 360 180 Q 365 220, 350 260 Q 340 300, 320 330 Q 280 360, 240 365 Q 200 370, 170 365 Q 130 360, 100 340 Q 70 310, 60 270 Q 55 220, 60 180 Z" fill="url(#mapGrad)" stroke="#C8960C" stroke-width="1" opacity="0.85"/>
+          <path d="M 180 100 L 195 200 L 190 280 L 200 340" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
+          <path d="M 220 90 L 230 200 L 225 290" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
+          <path d="M 260 100 L 270 230 L 265 320" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
+          <path d="M 130 130 L 145 200 L 140 280" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
+          <circle cx="215" cy="280" r="14" fill="#E5B520" opacity="0.3"/>
+          <circle cx="215" cy="280" r="9" fill="#E5B520"/>
+          <circle cx="215" cy="280" r="4" fill="#FFFFFF"/>
+          <text x="240" y="285" font-family="serif" font-size="18" fill="#E5B520" font-style="italic">Bénin</text>
+          <circle cx="180" cy="265" r="5" fill="#C8960C" opacity="0.7"/>
+          <text x="195" y="262" font-family="sans-serif" font-size="9" fill="#D4B896">TOGO</text>
+          <circle cx="155" cy="245" r="5" fill="#C8960C" opacity="0.7"/>
+          <text x="105" y="242" font-family="sans-serif" font-size="9" fill="#D4B896">GHANA</text>
+          <circle cx="180" cy="180" r="5" fill="#C8960C" opacity="0.7"/>
+          <text x="100" y="177" font-family="sans-serif" font-size="9" fill="#D4B896">BURKINA</text>
+          <circle cx="240" cy="170" r="5" fill="#C8960C" opacity="0.7"/>
+          <text x="252" y="167" font-family="sans-serif" font-size="9" fill="#D4B896">NIGER</text>
+          <circle cx="290" cy="240" r="5" fill="#C8960C" opacity="0.7"/>
+          <text x="302" y="237" font-family="sans-serif" font-size="9" fill="#D4B896">NIGERIA</text>
+          <line x1="215" y1="280" x2="180" y2="265" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+          <line x1="215" y1="280" x2="155" y2="245" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+          <line x1="215" y1="280" x2="180" y2="180" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+          <line x1="215" y1="280" x2="240" y2="170" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+          <line x1="215" y1="280" x2="290" y2="240" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
+          <text x="200" y="420" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#C8960C">AFRIQUE DE L'OUEST · 400M HABITANTS</text>
+        </svg>
       </div>
     </div>
   </div>
-
-  <div class="map-container reveal">
-    <svg class="map-svg" viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
-      <!-- Stylized West Africa map -->
-      <defs>
-        <linearGradient id="mapGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#3A2A18"/>
-          <stop offset="1" stop-color="#1A1208"/>
-        </linearGradient>
-      </defs>
-
-      <!-- West Africa shape (stylized) -->
-      <path d="M 60 180
-               Q 50 140, 80 110
-               Q 130 80, 200 80
-               Q 280 80, 330 110
-               Q 360 140, 360 180
-               Q 365 220, 350 260
-               Q 340 300, 320 330
-               Q 280 360, 240 365
-               Q 200 370, 170 365
-               Q 130 360, 100 340
-               Q 70 310, 60 270
-               Q 55 220, 60 180 Z"
-            fill="url(#mapGrad)" stroke="#C8960C" stroke-width="1" opacity="0.85"/>
-
-      <!-- Country borders (subtle) -->
-      <path d="M 180 100 L 195 200 L 190 280 L 200 340" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
-      <path d="M 220 90 L 230 200 L 225 290" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
-      <path d="M 260 100 L 270 230 L 265 320" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
-      <path d="M 130 130 L 145 200 L 140 280" stroke="#6B3F1A" stroke-width="0.5" fill="none" opacity="0.5"/>
-
-      <!-- Bénin marker (priority) -->
-      <circle cx="215" cy="280" r="14" fill="#E5B520" opacity="0.3"/>
-      <circle cx="215" cy="280" r="9" fill="#E5B520"/>
-      <circle cx="215" cy="280" r="4" fill="#FFFFFF"/>
-      <text x="240" y="285" font-family="Cormorant Garamond, serif" font-size="18" fill="#E5B520" font-style="italic">Bénin</text>
-
-      <!-- Other AOF markers -->
-      <circle cx="180" cy="265" r="5" fill="#C8960C" opacity="0.7"/>
-      <text x="195" y="262" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">TOGO</text>
-
-      <circle cx="155" cy="245" r="5" fill="#C8960C" opacity="0.7"/>
-      <text x="105" y="242" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">GHANA</text>
-
-      <circle cx="180" cy="180" r="5" fill="#C8960C" opacity="0.7"/>
-      <text x="100" y="177" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">BURKINA</text>
-
-      <circle cx="240" cy="170" r="5" fill="#C8960C" opacity="0.7"/>
-      <text x="252" y="167" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">NIGER</text>
-
-      <circle cx="290" cy="240" r="5" fill="#C8960C" opacity="0.7"/>
-      <text x="302" y="237" font-family="Bricolage Grotesque, sans-serif" font-size="9" fill="#D4B896">NIGERIA</text>
-
-      <!-- Dotted lines from Benin to others -->
-      <line x1="215" y1="280" x2="180" y2="265" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
-      <line x1="215" y1="280" x2="155" y2="245" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
-      <line x1="215" y1="280" x2="180" y2="180" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
-      <line x1="215" y1="280" x2="240" y2="170" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
-      <line x1="215" y1="280" x2="290" y2="240" stroke="#C8960C" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.6"/>
-
-      <!-- Caption -->
-      <text x="200" y="420" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="10" fill="#C8960C" letter-spacing="3">AFRIQUE DE L'OUEST · 400M HABITANTS</text>
-    </svg>
-  </div>
-</div>
-```
-
-  </div>
 </section>
-
-<!-- ══ CHIFFRES ═══════════════════════════════════════════════════════════ -->
 
 <section class="chiffres">
   <div class="chiffres-grid">
-    <div class="reveal">
-      <div class="chiffre-num">1000</div>
-      <div class="chiffre-label">Ans de tradition brassicole Somba</div>
-    </div>
-    <div class="reveal">
-      <div class="chiffre-num">14M</div>
-      <div class="chiffre-label">D'habitants au Bénin — marché initial</div>
-    </div>
-    <div class="reveal">
-      <div class="chiffre-num">400M</div>
-      <div class="chiffre-label">D'habitants en Afrique de l'Ouest</div>
-    </div>
-    <div class="reveal">
-      <div class="chiffre-num">100%</div>
-      <div class="chiffre-label">Béninois — propriété, sorgho, savoir-faire</div>
-    </div>
+    <div class="reveal"><div class="chiffre-num">1000</div><div class="chiffre-label">Ans de tradition brassicole Somba</div></div>
+    <div class="reveal"><div class="chiffre-num">14M</div><div class="chiffre-label">D'habitants au Bénin — marché initial</div></div>
+    <div class="reveal"><div class="chiffre-num">400M</div><div class="chiffre-label">D'habitants en Afrique de l'Ouest</div></div>
+    <div class="reveal"><div class="chiffre-num">100%</div><div class="chiffre-label">Béninois — propriété, sorgho, savoir-faire</div></div>
   </div>
 </section>
-
-<!-- ══ REJOINDRE ══════════════════════════════════════════════════════════ -->
 
 <section class="rejoindre" id="rejoindre">
   <div class="rejoindre-content reveal">
     <div class="section-label">05 — Rejoindre l'aventure</div>
     <h2>Le projet est <em>en construction</em>.<br>Les bons alliés font les grands projets.</h2>
     <p>Investisseurs, partenaires, brasseurs, artisans, journalistes, défenseurs du patrimoine — si TKT vous parle, parlons-nous.</p>
-
-```
-<div class="rejoindre-cta-group">
-  <a href="mailto:contact@tkt.bj" class="btn-primary">
-    Nous contacter
-    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-      <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="currentColor" stroke-width="1.5"/>
-    </svg>
-  </a>
-  <a href="#histoire" class="btn-secondary">En savoir plus</a>
-</div>
-```
-
+    <div class="rejoindre-cta-group">
+      <a href="mailto:contact@tkt.bj" class="btn-primary">
+        Nous contacter
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+      <a href="#histoire" class="btn-secondary">En savoir plus</a>
+    </div>
   </div>
 </section>
-
-<!-- ══ FOOTER ═════════════════════════════════════════════════════════════ -->
 
 <footer>
   <div class="footer-content">
@@ -1140,31 +545,22 @@ transform: translateY(0);
       <div class="footer-brand">TKT</div>
       <div class="footer-tagline">"La bière qui vient de chez nous"</div>
     </div>
-
-```
-<div class="footer-info">
-  <div class="footer-col">
-    <h5>Origine</h5>
-    <p>Atacora, Bénin</p>
-    <p>Peuple Somba</p>
-    <p>Patrimoine UNESCO</p>
+    <div class="footer-info">
+      <div class="footer-col">
+        <h5>Origine</h5>
+        <p>Atacora, Bénin</p><p>Peuple Somba</p><p>Patrimoine UNESCO</p>
+      </div>
+      <div class="footer-col">
+        <h5>Partenariat</h5>
+        <p>🇧🇯 Bénin</p><p>🇨🇦 Sherbrooke, Québec</p><p>Transfert technologique</p>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="mailto:contact@tkt.bj">contact@tkt.bj</a>
+        <p>Document complet sur demande</p>
+      </div>
+    </div>
   </div>
-  <div class="footer-col">
-    <h5>Partenariat</h5>
-    <p>🇧🇯 Bénin</p>
-    <p>🇨🇦 Sherbrooke, Québec</p>
-    <p>Transfert technologique</p>
-  </div>
-  <div class="footer-col">
-    <h5>Contact</h5>
-    <a href="mailto:contact@tkt.bj">contact@tkt.bj</a>
-    <p>Document complet sur demande</p>
-  </div>
-</div>
-```
-
-  </div>
-
   <div class="footer-bottom">
     <div>© 2026 — TKT · Tchoukoutou</div>
     <div>🇧🇯 × 🇨🇦 — Document v2.0</div>
@@ -1172,18 +568,14 @@ transform: translateY(0);
 </footer>
 
 <script>
-  // Reveal on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Nav background on scroll
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
